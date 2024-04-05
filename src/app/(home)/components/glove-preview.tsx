@@ -1,12 +1,15 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import dynamic from "next/dynamic";
 import {sampleArcs} from "@/data/sample-arcs";
 
-const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World), {
-    ssr: false,
-});
+const World = dynamic(
+    () => import("@/components/ui/globe").then((m) => m.World),
+    {
+        ssr: false,
+    }
+);
 
 export function GlobeDemo() {
     const globeConfig = {
@@ -27,14 +30,14 @@ export function GlobeDemo() {
         arcLength: 0.7,
         rings: 2,
         maxRings: 3,
-        initialPosition: { lat: 51.9274, lng: 15.3362 },
+        initialPosition: {lat: 51.9274, lng: 15.3362},
         autoRotate: true,
         autoRotateSpeed: 0.1,
     };
 
     return (
         <div className="flex flex-row h-full dark:bg-black bg-white relative w-full">
-            <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full px-4 py-4">
+            <div className="mx-auto w-full relative overflow-hidden h-full py-4">
                 <motion.div
                     initial={{
                         opacity: 0,
@@ -53,12 +56,15 @@ export function GlobeDemo() {
                         Welcome to BuzzVerse
                     </h2>
                     <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-                        We are a passionate group of students dedicated to fostering a love for science, exploration, and collaboration within our university community.
+                        We are a passionate group of students dedicated to fostering a love
+                        for science, exploration, and collaboration within our university
+                        community.
                     </p>
                 </motion.div>
-                <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
+                <div
+                    className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40"/>
                 <div className="absolute w-full h-3/4 -bottom-20 z-10">
-                    <World data={sampleArcs} globeConfig={globeConfig} />;
+                    <World data={sampleArcs} globeConfig={globeConfig}/>
                 </div>
             </div>
         </div>
