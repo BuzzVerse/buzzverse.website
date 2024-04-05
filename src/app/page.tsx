@@ -14,6 +14,15 @@ export default function Home() {
                 <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex bg-cyan-950">
                     <GlobeDemo/>
                 </div>
+                <div className="h-screen">
+
+                </div>
+                <div className="h-screen">
+
+                </div>
+                <div className="h-screen">
+
+                </div>
 
             </TrackingBeam>
         </main>

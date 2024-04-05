@@ -10,8 +10,10 @@ export function SparklesPreview() {
             </h1>
             <div className="w-screen h-40 relative">
                 {/* Gradients */}
-                <div className="absolute  left-1/3 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[2px] w-1/2 "/>
-                <div className="absolute left-1/4 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[5px] w-1/2 blur-sm"/>
+                <div
+                    className="absolute  left-1/3 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[2px] w-1/2 "/>
+                <div
+                    className="absolute left-1/4 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[5px] w-1/2 blur-sm"/>
 
                 {/* Core component */}
                 <SparklesCore
