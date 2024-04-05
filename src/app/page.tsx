@@ -5,13 +5,15 @@ import {GlobeDemo} from "@/app/(home)/components/glove-preview";
 
 export default function Home() {
   return (
-      <main className="flex h-[200vh] flex-col items-center justify-between">
-          <div className=" h-1/2 w-full items-center justify-between font-mono text-sm lg:flex">
+      <main className="flex flex-col items-center justify-between">
+          <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex">
               <SparklesPreview/>
           </div>
-          <div className=" h-1/2 w-full items-center justify-between font-mono text-sm lg:flex ">
+          <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex bg-cyan-950">
               <GlobeDemo/>
           </div>
+          {/*<div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex bg-cyan-950">*/}
+          {/*</div>*/}
       </main>
   );
 }
