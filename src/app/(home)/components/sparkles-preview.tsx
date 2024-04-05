@@ -5,16 +5,13 @@ import {SparklesCore} from "@/components/ui/sparkles-core";
 export function SparklesPreview() {
     return (
         <div className=" w-full h-screen bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-            <h1 className="md:text-7xl text-3xl lg:text-9xl font-bold text-center text-Buzzquaternary relative z-20">
+            <h1 className="md:text-7xl text-5xl lg:text-9xl font-bold text-center text-white relative z-20">
                 BuzzVerse
             </h1>
-            <div className="w-[80rem] h-40 relative">
+            <div className="w-screen h-40 relative">
                 {/* Gradients */}
-                {/*<div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-Buzzsecondary to-transparent h-[2px] w-3/4 blur-sm"/>*/}
-                <div
-                    className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[2px] w-full"/>
-                <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[5px] w-1/2 blur-sm"/>
-                <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-Buzzsecondary to-transparent h-px w-1/4"/>
+                <div className="absolute  left-1/3 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[2px] w-1/2 "/>
+                <div className="absolute left-1/4 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[5px] w-1/2 blur-sm"/>
 
                 {/* Core component */}
                 <SparklesCore
