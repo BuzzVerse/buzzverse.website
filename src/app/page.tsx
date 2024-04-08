@@ -16,14 +16,12 @@ export default function Home() {
                 <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex bg-cyan-950">
                     <GlobeDemo/>
                 </div>
-                <div className="h-full bg-red-500">
+                <div className="h-full bg-navy-600">
                     <InfiniteMovingCardsPreview/>
                 </div>
                 <div className="h-screen">
                     <AnimatedPinDemo/>
                 </div>
-
-
             </TrackingBeam>
         </main>
     );
