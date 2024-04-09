@@ -18,7 +18,6 @@ export default function RootLayout({
     return (
         <>
             <html lang="en" suppressHydrationWarning>
-            <head><title></title></head>
             <body>
             <ThemeProvider
                 attribute="class"
