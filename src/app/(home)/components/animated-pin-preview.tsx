@@ -6,12 +6,12 @@ import Image from "next/image";
 export function AnimatedPinDemo() {
 
     return (
-        <div>
-            <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white py-10">
-                BuzzVerse Projects
+        <div className="bg-white dark:bg-black">
+            <h2 className="text-center text-3xl md:text-4xl font-bold text-black dark:text-white py-10">
+                BuzzVerse Project
             </h2>
-            <div className="h-[40rem] w-full flex flex-col items-center">
-                <h2 className="text-center text-xl font-bold text-black dark:text-white py-10">
+            <div className="h-[30rem] md:h-[40rem] w-full flex flex-col items-center">
+                <h2 className="text-center text-2xl font-bold text-black dark:text-white py-8">
                     BeeMonitor
                 </h2>
                 <PinContainer title="/Github/BuzzVerse" href="https://github.com/BuzzVerse">
