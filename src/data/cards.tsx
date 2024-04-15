@@ -1,67 +1,83 @@
-export const testimonials = [
+export interface cardTestimonial {
+    name: string,
+    role: string,
+    linkToImage: string
+}
+
+export const testimonials: cardTestimonial[] = [
     {
-        quote: "Przewodniczący koła",
-        name: <strong>Olaf Bykowski</strong>,
-        title: "Przewodniczący koła",
+        name: "Olaf Bykowski",
+        role: "Przewodniczący koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/19494830?v=4'
     },
     {
-        quote: "Zastępca przewodniczącego",
-        name: <strong>Grzegorz Dziedzic</strong>,
-        title: "Zastępca przewodniczącego",
+        name: "Grzegorz Dziedzic",
+        role: "Zastępca przewodniczącego",
+        linkToImage: '/grzesiek.jpg'
     },
     {
-        quote: "Członek koła",
-        name: <strong>Rafał Majewski</strong>,
-        title: "Członek koła",
+        name: "Rafał Majewski",
+        role: "Członek koła",
+        linkToImage: '/rafal.jpg'
     },
     {
-        quote: "Opiekun koła",
-        name: <strong>Maciej Wołos</strong>,
-        title: "Opiekun koła",
+        name: "Maciej Wołos",
+        role: "Opiekun koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/72228413?v=4'
+
     },
     {
-        quote: "Opiekun koła",
-        name: <strong>Paweł Kamoda</strong>,
-        title: "Opiekun koła",
+        name: "Paweł Kamoda",
+        role: "Opiekun koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/140426706?v=4'
+
     },
     {
-        quote: "Project Manager",
-        name: <strong>Krzysztof Szkuta</strong>,
-        title: "Project Manager",
+        name: "Krzysztof Szkuta",
+        role: "Project Manager",
+        linkToImage: 'https://avatars.githubusercontent.com/u/152800647?v=4'
+
     },
     {
-        quote: "Członek koła",
-        name: <strong>Krystian Wybranowski</strong>,
-        title: "Członek koła",
+        name: "Krystian Wybranowski",
+        role: "Członek koła",
+        linkToImage: '/krystian.jpg'
     },
     {
-        quote: "Członek koła",
-        name: <strong>Dawid Sopoćko</strong>,
-        title: "Członek koła",
+
+        name: "Dawid Sopoćko",
+        role: "Członek koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/76049623?v=4'
+
     },
     {
-        quote: "Członek koła",
-        name: <strong>Julia Grześkowiak</strong>,
-        title: "Członek koła",
+        name: "Julia Grześkowiak",
+        role: "Członek koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/79307611?v=4'
+
     },
     {
-        quote: "Członek koła",
-        name: <strong>Jakub Greń</strong>,
-        title: "Członek koła",
+
+        name: "Jakub Greń",
+        role: "Członek koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/152533825?v=4'
+
     },
     {
-        quote: "Członek koła",
-        name: <strong>Jacek Kowalski</strong>,
-        title: "Członek koła",
+        name: "Jacek Kowalski",
+        role: "Członek koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/124920545?v=4'
     },
     {
-        quote: "Członek koła",
-        name: <strong>Jakub Martyński</strong>,
-        title: "Członek koła",
+        name: "Jakub Martyński",
+        role: "Członek koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/69093918?v=4'
+
     },
     {
-        quote: "Członek koła",
-        name: <strong>Adam Gabryel</strong>,
-        title: "Członek koła",
+        name: "Adam Gabryel",
+        role: "Członek koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/128848679?v=4'
+
     },
 ];

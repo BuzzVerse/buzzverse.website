@@ -3,20 +3,17 @@
 import {cn} from "@/lib/utils";
 import React, {useEffect, useState} from "react";
 import Image from "next/image";
+import {cardTestimonial} from "@/data/cards";
 
 
 export const InfiniteMovingCards = ({
                                         items,
                                         direction = "left",
-                                        speed = "fast",
+                                        speed = "normal",
                                         pauseOnHover = true,
                                         className,
                                     }: {
-    items: {
-        quote: string;
-        name: string;
-        title: string;
-    }[];
+    items: cardTestimonial[];
     direction?: "left" | "right";
     speed?: "fast" | "normal" | "slow";
     pauseOnHover?: boolean;
@@ -77,42 +74,36 @@ export const InfiniteMovingCards = ({
         <div
             ref={containerRef}
             className={cn(
-                "scroller relative z-20  max-w-7xl overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+                "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
                 className
             )}
         >
             <ul
                 ref={scrollerRef}
                 className={cn(
-                    " flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
-                    start && "animate-scroll ",
+                    "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+                    start && "animate-scroll",
                     pauseOnHover && "hover:[animation-play-state:paused]"
                 )}
             >
                 {items.map((item, idx) => (
-                    <li className="w-[400px] h-[400px] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700 px-8 py-6 md:w-[450px] flex flex-col justify-between"
-                        style={{background: "linear-gradient(180deg, var(--slate-800), var(--slate-900)",}} key={item.name}>
-                        <div aria-hidden="true" className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"></div>
-                        <div>
-                         <span>
-                            {item.name}
-                        </span>
+                    <li className="text-white w-[360px] h-[360px] md:w-[460px] md:h-[460px] max-w-full relative rounded-2xl border flex-shrink-0 border-white p-2 md:p-4 flex flex-col justify-between"
+                        key={item.name}>
+                        <div aria-hidden="true"
+                             className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"></div>
+                        <div className="">
+                            <span className="font-bold text-xl">
+                               {item.name}
+                            </span>
                             <br/>
-                            <p>
-                            {item.quote}
-                        </p>
+                            <p className="pb-1">
+                                {item.role}
+                            </p>
                         </div>
-                        <div>
-                            <Image
-                                src="/bee.jpg"
-                                alt="alt"
-                                height={400}
-                                width={300}
-                            />
-
+                        <div className='w-full h-full relative image-container'>
+                            <Image src={item.linkToImage} alt={item.name} layout="fill" objectFit="cover"
+                                   objectPosition="center top"/>
                         </div>
-
-
                     </li>
                 ))}
             </ul>
