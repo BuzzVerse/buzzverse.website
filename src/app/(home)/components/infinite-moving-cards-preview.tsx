@@ -10,8 +10,8 @@ export function InfiniteMovingCardsPreview() {
             <InfiniteMovingCards
                 items={testimonials}
                 direction="right"
-                speed="slow"
-                />
+                speed="slow"        
+            />
         </div>
     );
 }
