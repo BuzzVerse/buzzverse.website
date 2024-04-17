@@ -21,7 +21,7 @@ export const testimonials: cardTestimonial[] = [
         linkToImage: '/rafal.jpg'
     },
     {
-        name: "Maciej Wołos",
+        name: "Maciej Wołosewicz",
         role: "Opiekun koła",
         linkToImage: 'https://avatars.githubusercontent.com/u/72228413?v=4'
 
