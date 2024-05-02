@@ -4,12 +4,12 @@ import Image from "next/image";
 export function Footer() {
     return (
         <div
-            className="bg-black justify-center items-center py-6 px-5 font-light"
+            className="bg-black justify-center items-center py-6 px-10 font-light"
             id="contact">
             <div className="w-full flex flex-col md:flex-row md:gap-5">
                 <div className="w-full flex gap-10  md:w-fit py-3">
                     <div>
-                        <h1 className="text-2xl tracking-wide mb-3 whitespace-nowrap">
+                        <h1 className="text-2xl pb-3 mb-4 whitespace-nowrap tracking-wide">
                             Follow us
                         </h1>
                         {/*<Anchor direction="vertical" MenuItems={SocialItems}/>*/}
@@ -21,7 +21,7 @@ export function Footer() {
                                 className="flex items-center gap-2">
                                 <Image
                                     src="/github-mark.svg"
-                                    alt="Facebook"
+                                    alt="GitHub"
                                     width={30}
                                     height={30}
                                 />
@@ -40,14 +40,27 @@ export function Footer() {
                                 />
                                 <p>Instagram</p>
                             </a>
+                            <a
+                                href="https://www.linkedin.com/company/buzzverse-uz/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2">
+                                <Image
+                                    src="/Linkedin.png"
+                                    alt="LinkedIn"
+                                    width={30}
+                                    height={30}
+                                />
+                                <p>LinkedIn</p>
+                            </a>
                         </div>
 
                     </div>
                     <div>
-                        <h1 className="text-2xl pb-3 tracking-wide">Contact</h1>
+                        <h1 className="text-2xl pb-3 mb-4 whitespace-nowrap tracking-wide">Contact</h1>
                         <h3 className="flex align-center justify-around flex-col">
                             <a href="mailto:contact@buzzverse.dev">contact@buzzverse.dev</a>
-                            <p className="tracking-wide">64-120 Zielona Góra</p>
+                            <p className="tracking-wide pt-4">64-120 Zielona Góra</p>
                             <p>Poland</p>
                         </h3>
                     </div>
@@ -64,11 +77,11 @@ export function Footer() {
                     />
                 </div>
             </div>
-            <div className="flex flex-row justify-between px-10">
+            <div className="flex flex-row justify-between pt-3">
                 &copy; BuzzVerse {new Date().getFullYear()}
                 <span>
-          Made with <span className="text-primary">♡</span> by BuzzVerse Team
-        </span>
+                Made with <span className="text-primary">♡</span> by BuzzVerse Team
+                </span>
             </div>
         </div>
     );
