@@ -1,26 +1,26 @@
 "use client";
 
-import {SparklesPreview} from "@/app/(home)/components/sparkles-preview";
-import {GlobeDemo} from "@/app/(home)/components/glove-preview";
+import {Sparkles} from "@/app/(home)/components/sparkles";
+import {GitHubGlobe} from "@/app/(home)/components/glove-preview";
 import {TrackingBeam} from "@/components/ui/tracking-beam";
-import {InfiniteMovingCardsPreview} from "@/app/(home)/components/infinite-moving-cards-preview";
-import {AnimatedPinDemo} from "@/app/(home)/components/animated-pin-preview";
+import {PersonalCards} from "@/app/(home)/components/personal-cards";
+import {BeeMonitorPin} from "@/app/(home)/components/animated-pin-preview";
 
 export default function Home() {
     return (
         <main className="flex flex-col items-center justify-between">
             <TrackingBeam>
                 <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex">
-                    <SparklesPreview/>
+                    <Sparkles/>
                 </div>
                 <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex bg-cyan-950">
-                    <GlobeDemo/>
+                    <GitHubGlobe/>
                 </div>
                 <div className="h-full">
-                    <InfiniteMovingCardsPreview/>
+                    <PersonalCards/>
                 </div>
                 <div className="h-full">
-                    <AnimatedPinDemo/>
+                    <BeeMonitorPin/>
                 </div>
             </TrackingBeam>
         </main>

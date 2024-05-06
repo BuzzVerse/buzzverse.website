@@ -4,7 +4,7 @@ import {cn} from "@/lib/utils";
 import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import {cardTestimonial} from "@/data/cards";
-
+import Link from 'next/link';
 
 export const InfiniteMovingCards = ({
                                         items,
@@ -87,24 +87,27 @@ export const InfiniteMovingCards = ({
                 )}
             >
                 {items.map((item, idx) => (
-                    <li className="text-white w-[360px] h-[360px] md:w-[460px] md:h-[460px] max-w-full relative rounded-2xl border flex-shrink-0 border-white p-2 md:p-4 flex flex-col justify-between"
-                        key={item.name}>
-                        <div aria-hidden="true"
-                             className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"></div>
-                        <div className="">
+                    <Link href={`https://github.com/${item.GitHubUsername}`} key={idx}>
+                        <li className=" text-white w-[360px] h-[360px] md:w-[460px] md:h-[460px] max-w-full relative rounded-2xl border flex-shrink-0 border-white p-2 md:p-4 flex flex-col justify-between"
+                            key={item.name}
+                        >
+                            <div aria-hidden="true"
+                                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"></div>
+                            <div className="">
                             <span className="font-bold text-xl">
                                {item.name}
                             </span>
-                            <br/>
-                            <p className="pb-1">
-                                {item.role}
-                            </p>
-                        </div>
-                        <div className='w-full h-full relative image-container'>
-                            <Image src={item.linkToImage} alt={item.name} layout="fill" objectFit="cover"
-                                   objectPosition="center top"/>
-                        </div>
-                    </li>
+                                <br/>
+                                <p className="pb-1">
+                                    {item.role}
+                                </p>
+                            </div>
+                            <div className='w-full h-full relative image-container'>
+                                <Image src={item.linkToImage} alt={item.name} layout="fill" objectFit="cover"
+                                       objectPosition="center top"/>
+                            </div>
+                        </li>
+                    </Link>
                 ))}
             </ul>
         </div>

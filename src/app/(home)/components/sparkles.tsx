@@ -2,7 +2,7 @@
 import React from "react";
 import {SparklesCore} from "@/components/ui/sparkles-core";
 
-export function SparklesPreview() {
+export function Sparkles() {
     return (
         <div className=" w-full h-screen bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
             <h1 className="md:text-7xl text-5xl lg:text-9xl font-bold text-center text-white relative z-20">
