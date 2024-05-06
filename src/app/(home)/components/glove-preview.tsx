@@ -11,7 +11,7 @@ const World = dynamic(
     }
 );
 
-export function GlobeDemo() {
+export function GitHubGlobe() {
     const globeConfig = {
         pointSize: 4,
         globeColor: "#0D2137",
