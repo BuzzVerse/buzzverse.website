@@ -11,7 +11,7 @@ const content = [
         content: (
             <div className="h-full w-full  flex items-center justify-center text-white">
                 <Image
-                    src="/bee.jpg"
+                    src="/about_us.jpg"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -27,7 +27,7 @@ const content = [
         content: (
             <div className="h-full w-full  flex items-center justify-center text-white">
                 <Image
-                    src="/bee.jpg"
+                    src="/team.jpg"
                     width={300}
                     height={300}
                     className="h-full w-full object-cover"
@@ -43,7 +43,7 @@ const content = [
             content: (
                 <div className="h-full w-full  flex items-center justify-center text-white">
                     <Image
-                        src="/bee.jpg"
+                        src="/projects.jpg"
                         width={300}
                         height={300}
                         className="h-full w-full object-cover"
@@ -55,11 +55,11 @@ const content = [
     {
         title: "Bee Monitor",
         description:
-            "Our latest project is Bee Monitor. Thanks to technology that enables communication over long distances with low energy consumption, we can monitor parameters such as temperature or humidity in a given place. In the project, we use LoRa technology to observe the activity of bees in the beehive. The collected data is transferred to the mast and then to the database, where it is finally presented on our website. Our initiative not only provides valuable information for bee breeders, but also supports the protection of these insects important to the ecosystem.",
+            "Our latest project is Bee Monitor. Thanks to the LoRa technology that enables communication over long distances, we can monitor parameters such as temperature or humidity in a given place. The collected data is transferred to the mast and then to the database, where it is finally presented on our website. Our initiative not only provides valuable information for bee breeders, but also supports the protection of these insects important to the ecosystem.",
             content: (
                 <div className="h-full w-full  flex items-center justify-center text-white">
                     <Image
-                        src="/bee.jpg"
+                        src="/beemonitor.jpg"
                         width={300}
                         height={300}
                         className="h-full w-full object-cover"
