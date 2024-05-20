@@ -5,7 +5,7 @@ export interface cardTestimonial {
     GitHubUsername: string
 }
 
-export const testimonials: cardTestimonial[] = [
+export const testimonials: [] = [
     {
         name: "Olaf Bykowski",
         role: "Przewodniczący koła",
@@ -66,7 +66,6 @@ export const testimonials: cardTestimonial[] = [
         GitHubUsername: 'JuGecko'
     },
     {
-
         name: "Jakub Greń",
         role: "Członek koła",
         linkToImage: 'https://avatars.githubusercontent.com/u/152533825?v=4',
