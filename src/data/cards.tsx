@@ -66,7 +66,6 @@ export const testimonials: cardTestimonial[] = [
         GitHubUsername: 'JuGecko'
     },
     {
-
         name: "Jakub Greń",
         role: "Członek koła",
         linkToImage: 'https://avatars.githubusercontent.com/u/152533825?v=4',

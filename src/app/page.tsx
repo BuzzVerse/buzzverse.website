@@ -5,6 +5,7 @@ import {GitHubGlobe} from "@/app/(home)/components/glove-preview";
 import {TrackingBeam} from "@/components/ui/tracking-beam";
 import {PersonalCards} from "@/app/(home)/components/personal-cards";
 import {BeeMonitorPin} from "@/app/(home)/components/animated-pin-preview";
+import {AboutTeamStory} from "@/app/(home)/components/about-team-story";
 
 export default function Home() {
     return (
@@ -15,6 +16,11 @@ export default function Home() {
                 </div>
                 <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex bg-cyan-950">
                     <GitHubGlobe/>
+                </div>
+                <div>
+                    <AboutTeamStory>
+
+                    </AboutTeamStory>
                 </div>
                 <div className="h-full">
                     <PersonalCards/>
