@@ -2,8 +2,9 @@
 import React from "react";
 import {PinContainer} from "@/components/ui/animated-pin-demo";
 import Image from "next/image";
+import Link from "next/link";
 
-export function AnimatedPinDemo() {
+export function BeeMonitorPin() {
 
     return (
         <div className="bg-white dark:bg-black">
@@ -14,7 +15,7 @@ export function AnimatedPinDemo() {
                 <h2 className="text-center text-2xl font-bold text-black dark:text-white py-8">
                     BeeMonitor
                 </h2>
-                <PinContainer title="/Github/BuzzVerse" href="https://github.com/BuzzVerse">
+                <PinContainer title="BuzzVerse" href="https://github.com/BuzzVerse">
                     <div
                         className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
                         <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
@@ -25,15 +26,17 @@ export function AnimatedPinDemo() {
         Check our source code
     </span>
                         </div>
+                        <Link href="https://github.com/BuzzVerse">
                         <div className="flex flex-1 w-full h-full rounded-lg mt-4">
                             <Image
                                 src="/bee.jpg"
                                 alt="alt"
                                 layout="fill"
-                                objectFit="cover" // or "contain" depending on your needs
+                                objectFit="cover"
                                 objectPosition="center"
                             />
                         </div>
+                    </Link>
                     </div>
                 </PinContainer>
             </div>
