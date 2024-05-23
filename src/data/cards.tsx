@@ -5,7 +5,7 @@ export interface cardTestimonial {
     GitHubUsername: string
 }
 
-export const testimonials: [] = [
+export const testimonials: cardTestimonial[] = [
     {
         name: "Olaf Bykowski",
         role: "Przewodniczący koła",
