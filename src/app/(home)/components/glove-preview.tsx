@@ -17,11 +17,11 @@ export function GitHubGlobe() {
         globeColor: "#0D2137",
         showAtmosphere: true,
         atmosphereColor: "#FFFFFF",
-        atmosphereAltitude: 0.1,
+        atmosphereAltitude: 0.11,
         emissive: "#062056",
-        emissiveIntensity: 0.2,
+        emissiveIntensity: 0.3,
         shininess: 0.9,
-        polygonColor: "rgba(49,154,6,0.7)",
+        polygonColor: "rgba(255,226,43,0.8)",
         ambientLight: "#ffffff",
         directionalLeftLight: "#ffffff",
         directionalTopLight: "#ffffff",
@@ -34,7 +34,6 @@ export function GitHubGlobe() {
         autoRotate: true,
         autoRotateSpeed: 0.1,
     };
-
     return (
         <div className="flex flex-row h-full dark:bg-black bg-white relative w-full">
             <div className="mx-auto w-full relative overflow-hidden h-full py-4">
@@ -63,7 +62,7 @@ export function GitHubGlobe() {
                 </motion.div>
                 <div
                     className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40"/>
-                <div className="absolute w-full h-3/4 -bottom-20 z-10">
+                <div className="absolute w-full h-3/4 -bottom-20 z-10 pointer-events-none">
                     <World data={sampleArcs} globeConfig={globeConfig}/>
                 </div>
             </div>

@@ -243,6 +243,15 @@ export function WebGLRendererConfig() {
 }
 
 export function World(props: WorldProps) {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    useEffect(() => {
+        function handleResize() {
+            setIsMobile(window.innerWidth < 768);
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
     const { globeConfig } = props;
     const scene = new Scene();
     scene.fog = new Fog(0xffffff, 400, 2000);
@@ -273,6 +282,7 @@ export function World(props: WorldProps) {
                 autoRotate={true}
                 minPolarAngle={Math.PI / 3.5}
                 maxPolarAngle={Math.PI - Math.PI / 3}
+                enableRotate={!isMobile}
             />
         </Canvas>
     );
