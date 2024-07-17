@@ -8,7 +8,7 @@ export function PersonalCards() {
     return (
         <div
             className="h-screen w-full rounded-md flex flex-col antialiased bg-black items-center overflow-hidden">
-            <h2 className="my-16 md:mt-24 md:mb-36 text-4xl font-semibold text-white">
+            <h2 className="mb-20 mt-20 text-4xl font-semibold text-white">
                 Members
             </h2>
             <InfiniteMovingCards
