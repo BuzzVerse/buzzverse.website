@@ -35,7 +35,7 @@ export function GitHubGlobe() {
         autoRotateSpeed: 0.1,
     };
     return (
-        <div className="flex flex-row h-full bg-black relative w-full">
+        <div className="flex flex-row h-full bg-black relative w-full bg-dot-white/[0.2]">
             <div className="mx-auto w-full relative overflow-hidden h-full py-4">
                 <motion.div
                     initial={{

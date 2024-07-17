@@ -19,14 +19,14 @@ export const StickyScroll = ({
     const ref = useRef<any>(null);
     const { scrollYProgress } = useScroll({
         // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-        // target: ref,
+        //target: ref,
         container: ref,
         offset: ["start start", "end start"],
     });
     const cardLength = content.length;
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        const cardsBreakpoints = content.map((_, index) => index / cardLength);
+        const cardsBreakpoints = content.map((_, index) => index / cardLength - 1 / cardLength / 2);
         const closestBreakpointIndex = cardsBreakpoints.reduce(
             (acc, breakpoint, index) => {
                 const distance = Math.abs(latest - breakpoint);
@@ -42,9 +42,9 @@ export const StickyScroll = ({
 
     const backgroundColors = [
         "var(--neutral-800)",
-        "var(--yellow-900)",
+        "var(--yellow-800)",
         "var(--neutral-800)",
-        "var(--yellow-900)"
+        "var(--yellow-800)"
     ];
 
     return (
@@ -52,7 +52,7 @@ export const StickyScroll = ({
             animate={{
                 backgroundColor: backgroundColors[activeCard % backgroundColors.length],
             }}
-            className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 md:w-1/2"
+            className="h-4/5 overflow-y-auto flex justify-evenly relative space-x-10 rounded-md p-10 md:w-2/3"
             ref={ref}
         >
             <div className="div relative flex items-start px-4">
@@ -83,13 +83,13 @@ export const StickyScroll = ({
                             </motion.p>
                         </div>
                     ))}
-                    <div className="h-40" />
+                    <div className="h-20" />
                 </div>
             </div>
             <motion.div
 
                 className={cn(
-                    "hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden",
+                    "hidden lg:flex h-60 w-80 ml-0 rounded-md bg-white sticky top-1/2 transform -translate-y-1/2 overflow-hidden justify-center items-center",
                     contentClassName
                 )}
             >
