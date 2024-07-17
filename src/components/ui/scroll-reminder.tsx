@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const ScrollReminder = () => {
   return (
-    <div className='fixed pt-10 animate-bounce'>
+    <div className='absolute pt-10 animate-bounce'>
       <Link href='#globe' passHref legacyBehavior>
         <a> {/* Keep the <a> tag for accessibility */}
           <Image
