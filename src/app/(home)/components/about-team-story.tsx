@@ -71,7 +71,7 @@ const content = [
 ];
 export function AboutTeamStory() {
     return (
-        <div className="p-10">
+        <div className="p-5 py-20 flex justify-center bg-black w-full">
             <StickyScroll content={content} />
         </div>
     );

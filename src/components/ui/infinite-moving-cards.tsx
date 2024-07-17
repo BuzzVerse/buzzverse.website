@@ -88,7 +88,7 @@ export const InfiniteMovingCards = ({
             >
                 {items.map((item, idx) => (
                     <Link href={`https://github.com/${item.GitHubUsername}`} key={idx}>
-                        <li className=" text-white w-[360px] h-[360px] md:w-[460px] md:h-[460px] max-w-full relative rounded-2xl border flex-shrink-0 border-white p-2 md:p-4 flex flex-col justify-between"
+                        <li className=" text-white w-[360px] h-[360px] md:w-[460px] md:h-[460px] max-w-full relative rounded-2xl border flex-shrink-0 bg-black border-white p-2 md:p-4 flex flex-col justify-between"
                             key={item.name}
                         >
                             <div aria-hidden="true"
