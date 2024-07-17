@@ -35,7 +35,7 @@ export function GitHubGlobe() {
         autoRotateSpeed: 0.1,
     };
     return (
-        <div className="flex flex-row h-full dark:bg-black bg-white relative w-full">
+        <div className="flex flex-row h-full bg-black relative w-full">
             <div className="mx-auto w-full relative overflow-hidden h-full py-4">
                 <motion.div
                     initial={{
@@ -51,17 +51,17 @@ export function GitHubGlobe() {
                     }}
                     className="div"
                 >
-                    <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white pt-10">
+                    <h2 className="text-center text-xl md:text-4xl font-bold text-white pt-10">
                         Welcome to BuzzVerse
                     </h2>
-                    <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
+                    <p className="text-center text-base md:text-lg font-normal text-neutral-200 max-w-md mt-2 mx-auto">
                         We are a passionate group of students dedicated to fostering a love
                         for science, exploration, and collaboration within our university
                         community.
                     </p>
                 </motion.div>
                 <div
-                    className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40"/>
+                    className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40"/>
                 <div className="absolute w-full h-3/4 -bottom-20 z-10 pointer-events-none">
                     <World data={sampleArcs} globeConfig={globeConfig}/>
                 </div>

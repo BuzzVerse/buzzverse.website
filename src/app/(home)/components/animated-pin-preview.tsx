@@ -7,12 +7,12 @@ import Link from "next/link";
 export function BeeMonitorPin() {
 
     return (
-        <div className="bg-white dark:bg-black">
-            <h2 className="text-center text-3xl md:text-4xl font-bold text-black dark:text-white py-10">
+        <div className="bg-black">
+            <h2 className="text-center text-3xl md:text-4xl font-bold text-white py-10">
                 BuzzVerse Project
             </h2>
             <div className="h-[30rem] md:h-[40rem] w-full flex flex-col items-center">
-                <h2 className="text-center text-2xl font-bold text-black dark:text-white py-8">
+                <h2 className="text-center text-2xl font-bold text-white py-8">
                     BeeMonitor
                 </h2>
                 <PinContainer title="BuzzVerse" href="https://github.com/BuzzVerse">
