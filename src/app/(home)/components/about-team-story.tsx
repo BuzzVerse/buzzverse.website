@@ -71,7 +71,8 @@ const content = [
 ];
 export function AboutTeamStory() {
     return (
-        <div className="p-5 h-screen flex justify-center items-center bg-black w-full">
+        <div className="p-5 h-screen flex justify-center items-center bg-black w-full flex-col">
+            <h1 className="mb-20 mt-20 text-4xl font-semibold text-white">What we do?</h1>
             <StickyScroll content={content} />
         </div>
     );
