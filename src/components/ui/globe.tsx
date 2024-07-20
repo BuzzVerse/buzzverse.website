@@ -88,6 +88,9 @@ export function Globe({ globeConfig, data }: WorldProps) {
         arcLength: 0.9,
         rings: 1,
         maxRings: 3,
+        initialPosition: { lat: 51.9274, lng: 15.3362 },
+        autoRotate: true,
+        autoRotateSpeed: 1,
         ...globeConfig,
     };
 
@@ -278,7 +281,7 @@ export function World(props: WorldProps) {
                 enableZoom={false}
                 minDistance={cameraZ}
                 maxDistance={cameraZ}
-                autoRotateSpeed={1}
+                autoRotateSpeed={5}
                 autoRotate={true}
                 minPolarAngle={Math.PI / 3.5}
                 maxPolarAngle={Math.PI - Math.PI / 3}

@@ -14,15 +14,15 @@ const World = dynamic(
 export function GitHubGlobe() {
     const globeConfig = {
         pointSize: 4,
-        globeColor: "#0D2137",
+        globeColor: "#222233",
         showAtmosphere: true,
-        atmosphereColor: "#FFFFFF",
-        atmosphereAltitude: 0.11,
-        emissive: "#062056",
-        emissiveIntensity: 0.3,
-        shininess: 0.9,
-        polygonColor: "rgba(255,226,43,0.8)",
-        ambientLight: "#ffffff",
+        atmosphereColor: "#FFFFdd",
+        atmosphereAltitude: 0.1,
+        emissive: "#000000",
+        emissiveIntensity: 0.1,
+        shininess: 1.0,
+        polygonColor: "rgba(255,255,255,0.7)",
+        ambientLight: "#aaaacc",
         directionalLeftLight: "#ffffff",
         directionalTopLight: "#ffffff",
         pointLight: "#ffffff",
@@ -32,7 +32,6 @@ export function GitHubGlobe() {
         maxRings: 3,
         initialPosition: {lat: 51.9274, lng: 15.3362},
         autoRotate: true,
-        autoRotateSpeed: 0.1,
     };
     return (
         <div className="flex flex-row h-full bg-black relative w-full bg-dot-white/[0.2]">
@@ -51,7 +50,7 @@ export function GitHubGlobe() {
                     }}
                     className="div"
                 >
-                    <h2 className="text-center text-xl md:text-4xl font-bold text-white pt-10">
+                    <h2 className="text-center text-xl md:text-4xl font-bold text-white pt-20">
                         Welcome to BuzzVerse
                     </h2>
                     <p className="text-center text-base md:text-lg font-normal text-neutral-200 max-w-md mt-2 mx-auto">
@@ -60,9 +59,8 @@ export function GitHubGlobe() {
                         community.
                     </p>
                 </motion.div>
-                <div
-                    className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40"/>
-                <div className="absolute w-full h-3/4 -bottom-20 z-10 pointer-events-none">
+                <div className="absolute w-full bottom-0 inset-x-0 h-60 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40"/>
+                <div className="absolute w-full h-3/4 -bottom-20 z-10 pointer-events-none" >
                     <World data={sampleArcs} globeConfig={globeConfig}/>
                 </div>
             </div>
