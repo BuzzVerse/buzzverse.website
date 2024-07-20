@@ -1,4 +1,4 @@
-const colors = ["#D5BB1B", "#D5BB1B", "#E3E521"];
+const colors = ["#a16207", "#ca8a04", "#eab308"];
 
 export const sampleArcs = [
     {
