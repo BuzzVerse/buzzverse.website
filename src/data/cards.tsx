@@ -89,4 +89,10 @@ export const testimonials: cardTestimonial[] = [
         linkToImage: 'https://avatars.githubusercontent.com/u/122576236?v=4',
         GitHubUsername: 'DabP03'
     },
+    {
+        name: "Dawid Feruś",
+        role: "Członek koła",
+        linkToImage: 'https://avatars.githubusercontent.com/u/118829241?v=4',
+        GitHubUsername: 'Fernando546'
+    },
 ];

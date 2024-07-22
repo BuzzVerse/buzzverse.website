@@ -71,10 +71,10 @@ export const TrackingBeam = ({
               delay: 0.5,
             }}
             animate={{
-              backgroundColor: "var(--emerald-500)",
-              borderColor: "var(--emerald-500)",
+              backgroundColor: "var(--yellow-500)",
+              borderColor: "var(--yellow-500)",
             }}
-            className="h-3 w-3 rounded-full border border-red-500 bg-red-500"
+            className="h-3 w-3 rounded-full border border-yellow-500 bg-yellow-600"
           />
         </motion.div>
         <svg
@@ -112,10 +112,10 @@ export const TrackingBeam = ({
                 y1={y1} // set y1 for gradient
                 y2={y2} // set y2 for gradient
             >
-              <stop stopColor="#FF8E2B" stopOpacity="0"></stop>
-              <stop stopColor="#FF8E2B"></stop>
-              <stop offset="0.325" stopColor="#6344F5"></stop>
-              <stop offset="1" stopColor="#AE48FF" stopOpacity="0"></stop>
+              <stop stopColor="#a16207" stopOpacity="0"></stop>
+              <stop stopColor="#ca8a04"></stop>
+              <stop offset="0.325" stopColor="#eab308"></stop>
+              <stop offset="1" stopColor="#eab308" stopOpacity="0"></stop>
 
             </motion.linearGradient>
           </defs>

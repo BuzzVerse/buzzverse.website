@@ -10,7 +10,7 @@ export const InfiniteMovingCards = ({
                                         items,
                                         direction = "left",
                                         speed = "normal",
-                                        pauseOnHover = true,
+                                        pauseOnHover = false,
                                         className,
                                     }: {
     items: cardTestimonial[];
@@ -64,7 +64,7 @@ export const InfiniteMovingCards = ({
             if (speed === "fast") {
                 containerRef.current.style.setProperty("--animation-duration", "20s");
             } else if (speed === "normal") {
-                containerRef.current.style.setProperty("--animation-duration", "40s");
+                containerRef.current.style.setProperty("--animation-duration", "50s");
             } else {
                 containerRef.current.style.setProperty("--animation-duration", "80s");
             }
@@ -81,14 +81,14 @@ export const InfiniteMovingCards = ({
             <ul
                 ref={scrollerRef}
                 className={cn(
-                    "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+                    "flex min-w-full shrink-0 gap-4 pt-10 w-max flex-nowrap",
                     start && "animate-scroll",
                     pauseOnHover && "hover:[animation-play-state:paused]"
                 )}
             >
                 {items.map((item, idx) => (
                     <Link href={`https://github.com/${item.GitHubUsername}`} key={idx}>
-                        <li className=" text-white w-[360px] h-[360px] md:w-[460px] md:h-[460px] max-w-full relative rounded-2xl border flex-shrink-0 border-white p-2 md:p-4 flex flex-col justify-between"
+                        <li className=" text-white w-[360px] h-[360px] md:w-[460px] md:h-[460px] max-w-full relative rounded-2xl border flex-shrink-0 bg-black border-white p-2 md:p-4 flex flex-col justify-between"
                             key={item.name}
                         >
                             <div aria-hidden="true"
