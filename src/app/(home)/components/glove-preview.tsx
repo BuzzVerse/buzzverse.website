@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
-import {motion} from "framer-motion";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
-import {sampleArcs} from "@/data/sample-arcs";
+import { sampleArcs } from "@/data/sample-arcs";
 
 const World = dynamic(
     () => import("@/components/ui/globe").then((m) => m.World),
@@ -30,9 +30,14 @@ export function GitHubGlobe() {
         arcLength: 0.7,
         rings: 2,
         maxRings: 3,
-        initialPosition: {lat: 51.9274, lng: 15.3362},
+        initialPosition: { lat: 51.9274, lng: 15.3362 },
         autoRotate: true,
     };
+
+    useEffect(() => {
+        window.dispatchEvent(new Event("resize"));
+    }, []);
+
     return (
         <div className="flex flex-row h-full bg-black relative w-full bg-dot-white/[0.2]">
             <div className="mx-auto w-full relative overflow-hidden h-full py-4">
@@ -59,9 +64,9 @@ export function GitHubGlobe() {
                         community.
                     </p>
                 </motion.div>
-                <div className="absolute w-full bottom-0 inset-x-0 h-60 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40"/>
-                <div className="absolute w-full h-3/4 -bottom-20 z-10 pointer-events-none" >
-                    <World data={sampleArcs} globeConfig={globeConfig}/>
+                <div className="absolute w-full bottom-0 inset-x-0 h-60 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40" />
+                <div className="absolute w-full h-3/4 -bottom-20 z-10 pointer-events-none">
+                    <World data={sampleArcs} globeConfig={globeConfig} />
                 </div>
             </div>
         </div>

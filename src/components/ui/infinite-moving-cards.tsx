@@ -103,8 +103,16 @@ export const InfiniteMovingCards = ({
                                 </p>
                             </div>
                             <div className='w-full h-full relative image-container'>
-                                <Image src={item.linkToImage} alt={item.name} layout="fill" objectFit="cover"
-                                       objectPosition="center top"/>
+                                <Image
+                                    src={item.linkToImage}
+                                    alt={item.name}
+                                    fill
+                                    style={{
+                                        objectFit: 'cover',
+                                        objectPosition: 'center top'
+                                    }}
+                                    sizes="100vw" 
+                                />
                             </div>
                         </li>
                     </Link>

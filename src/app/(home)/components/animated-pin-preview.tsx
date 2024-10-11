@@ -31,9 +31,9 @@ export function BeeMonitorPin() {
                             <Image
                                 src="/bee.jpg"
                                 alt="alt"
-                                layout="fill"
-                                objectFit="cover"
-                                objectPosition="center"
+                                fill
+                                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                                sizes="100vw"
                             />
                         </div>
                     </Link>
