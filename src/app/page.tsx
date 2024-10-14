@@ -11,10 +11,7 @@ import ScrollReminder from "@/components/ui/scroll-reminder";
 export default function Home() {
     return (
         <main className="flex flex-col items-center justify-between bg-black w-full">
-            <TrackingBeam>
-                <div className="flex justify-center">
-                    <ScrollReminder/>
-                </div>           
+            <TrackingBeam className="z-10">         
                 <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex ">
                     <Sparkles/>
                 </div>
