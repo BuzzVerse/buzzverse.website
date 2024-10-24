@@ -1,8 +1,11 @@
 import React from 'react'
+import { TimelineDemo } from '../(home)/components/timeline'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <TimelineDemo />
+    </div>
   )
 }
 
