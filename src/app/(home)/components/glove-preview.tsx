@@ -39,7 +39,7 @@ export function GitHubGlobe() {
     }, []);
 
     return (
-        <div className="flex flex-row h-full bg-black relative w-full bg-dot-white/[0.2]">
+        <div className="flex flex-row h-full bg-neutral-950 relative w-full bg-dot-white/[0.2]">
             <div className="mx-auto w-full relative overflow-hidden h-full py-4">
                 <motion.div
                     initial={{
@@ -64,7 +64,7 @@ export function GitHubGlobe() {
                         community.
                     </p>
                 </motion.div>
-                <div className="absolute w-full bottom-0 inset-x-0 h-60 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-40" />
+                <div className="absolute w-full bottom-0 inset-x-0 h-60 bg-gradient-to-b pointer-events-none select-none from-transparent to-neutral-950 z-40" />
                 <div className="absolute w-full h-3/4 -bottom-20 z-10 pointer-events-none">
                     <World data={sampleArcs} globeConfig={globeConfig} />
                 </div>

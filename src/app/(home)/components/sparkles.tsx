@@ -4,7 +4,7 @@ import {SparklesCore} from "@/components/ui/sparkles-core";
 
 export function Sparkles() {
     return (
-        <div className=" w-full h-screen bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+        <div className=" w-full h-screen bg-neutral-950 flex flex-col items-center justify-center overflow-hidden rounded-md">
             <h1 className="md:text-7xl text-5xl lg:text-9xl font-bold text-center text-white relative z-20">
                 BuzzVerse
             </h1>
@@ -27,7 +27,7 @@ export function Sparkles() {
 
                 {/* Radial Gradient to prevent sharp edges */}
                 <div
-                    className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+                    className="absolute inset-0 w-full h-full bg-neutral-950 [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
             </div>
         </div>
     );

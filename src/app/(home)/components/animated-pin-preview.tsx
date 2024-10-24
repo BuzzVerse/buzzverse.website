@@ -7,7 +7,7 @@ import Link from "next/link";
 export function BeeMonitorPin() {
 
     return (
-        <div className="bg-black">
+        <div className="bg-neutral-950">
             <h2 className="text-center text-3xl md:text-4xl font-bold text-white py-10">
                 BuzzVerse Project
             </h2>
