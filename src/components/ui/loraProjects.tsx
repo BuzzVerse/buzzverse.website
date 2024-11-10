@@ -12,13 +12,13 @@ const loraProjects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              title: "Smart City Waste Management",
+              title: "Smart Parking System",
               description: "Optimizing waste collection routes with smart bins",
               image: "/placeholder.svg?height=300&width=400",
               badges: ["IoT", "Smart City", "LoRa"],
             },
             {
-              title: "Agricultural Monitoring System",
+              title: "Bee Hive Monitoring",
               description:
                 "Real-time crop health tracking for optimal management",
               image: "/placeholder.svg?height=300&width=400",

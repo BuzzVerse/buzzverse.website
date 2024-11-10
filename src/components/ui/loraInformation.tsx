@@ -17,11 +17,11 @@ const loraInformation = () => {
           </div>
           <div className="relative h-64 md:h-full">
             <Image
-              src="/placeholder.svg"
+              src="/loralogo.png"
               alt="LoRa Technology Illustration"
               width={600}
               height={400}
-              className="rounded-lg shadow-lg"
+              className="rounded-lg"
               style={{ objectFit: "cover" }}
             />
           </div>
