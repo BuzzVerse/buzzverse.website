@@ -24,7 +24,7 @@ export default function RootLayout({
                 disableTransitionOnChange
             >
                 {/*<ModeToggle />*/}
-                <Navbar/>
+                {/* <Navbar/>  */}
                 {children}
                 <Footer />
                 
