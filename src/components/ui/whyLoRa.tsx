@@ -25,12 +25,7 @@ const whyLoRa = () => {
               </CardHeader>
               <CardContent>
                 <p>
-                  LoRa technology is perfectly suited for IoT applications that
-                  require long-range communication with minimal power
-                  consumption. It's especially useful in smart city initiatives,
-                  agricultural monitoring, and industrial IoT scenarios where
-                  devices need to transmit small amounts of data over long
-                  distances.
+                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur sequi adipisci earum eligendi necessitatibus voluptatum. Reprehenderit, reiciendis vel eius omnis aliquam temporibus excepturi a dolore qui nostrum itaque inventore dolorum.
                 </p>
               </CardContent>
             </Card>
@@ -45,12 +40,7 @@ const whyLoRa = () => {
               </CardHeader>
               <CardContent>
                 <p>
-                  LoRa offers a cost-effective approach to IoT deployment. The
-                  long range of LoRa devices means fewer gateways are needed to
-                  cover large areas, reducing infrastructure costs.
-                  Additionally, the low power consumption extends battery life,
-                  minimizing maintenance expenses and making it economical for
-                  large-scale IoT projects.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio aut officia possimus tempora minus esse perferendis in, saepe placeat, sunt necessitatibus illum mollitia qui labore. Modi iure voluptatem voluptates vero?
                 </p>
               </CardContent>
             </Card>
@@ -65,11 +55,7 @@ const whyLoRa = () => {
               </CardHeader>
               <CardContent>
                 <p>
-                  Security is a top priority in IoT applications, and LoRa
-                  delivers with its robust end-to-end encryption. This ensures
-                  that data transmitted between devices and gateways remains
-                  confidential and protected from unauthorized access, making it
-                  suitable for sensitive applications in various industries.
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi expedita molestias deserunt in, est omnis, dolor voluptatibus praesentium ab corporis, rerum accusamus eaque quas labore nostrum ratione voluptate aliquam reiciendis?
                 </p>
               </CardContent>
             </Card>
