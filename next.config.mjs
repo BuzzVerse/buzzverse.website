@@ -2,7 +2,20 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['avatars.githubusercontent.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'avatars.githubusercontent.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'assets.aceternity.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'strapi.buzzverse.dev', // Dodana domena
+            },
+        ],
     },
 };
 

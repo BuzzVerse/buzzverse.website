@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import "./globals.css";
 import {ThemeProvider} from "@/components/theme-provider";
 import {Footer} from "@/components/ui/footer";
+import {Navbar, NavbarDemo} from "@/app/(home)/components/navbar-menu";
 
 export const metadata: Metadata = {
   title: "BuzzVerse",
@@ -23,7 +24,7 @@ export default function RootLayout({
                 disableTransitionOnChange
             >
                 {/*<ModeToggle />*/}
-                
+                {/* <Navbar/>  */}
                 {children}
                 <Footer />
                 
