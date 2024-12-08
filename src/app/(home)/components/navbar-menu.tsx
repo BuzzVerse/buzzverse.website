@@ -19,16 +19,15 @@ export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
+      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 hidden md:block", className)}
     >
       <Menu setActive={setActive}>
         <Link href="/">Home</Link>
-        <MenuItem setActive={setActive} active={active} item="Lora">
+        <MenuItem setActive={setActive} active={active} item="Projects">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/lora">Web Development</HoveredLink>
-            <HoveredLink href="/lora">Interface Design</HoveredLink>
-            <HoveredLink href="/lora">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/lora">Branding</HoveredLink>
+            <HoveredLink href="/projects">Lora</HoveredLink>
+            <HoveredLink href="/projects">Our latest projects</HoveredLink>
+            <HoveredLink href="/projects">Bee monitor</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="News">
