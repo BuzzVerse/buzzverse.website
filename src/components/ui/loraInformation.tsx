@@ -1,18 +1,18 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
 
 const loraInformation = () => {
   return (
-    <section className="mb-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <section>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center my-20">
         <div>
-          <h2 className="text-3xl font-semibold mb-4">What is LoRa?</h2>
-          <p className="text-lg mb-4">
-            LoRa (Long Range) is a cutting-edge low-power wide-area network
-            (LPWAN) technology designed for Internet of Things (IoT)
-            applications. It enables long-range communications with minimal
-            power consumption, making it ideal for battery-operated devices in
-            remote locations.
+          <h2 className="text-3xl font-semibold mb-4">
+            What technology our projects use?
+          </h2>
+          <p className="text-lg">
+            Our science club is trying to develop in embedded systems, we focus on
+            communication between devices, we have chosen lora communication
+            technologies on an ongoing basis. 
           </p>
         </div>
         <div className="relative h-64 md:h-full flex justify-center">
@@ -29,7 +29,7 @@ const loraInformation = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default loraInformation
+export default loraInformation;

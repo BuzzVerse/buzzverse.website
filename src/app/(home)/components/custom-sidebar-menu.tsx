@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 
 const menuItems = [
   { icon: Home, label: 'Home', href: '/' },
-  { icon: Cpu, label: 'Projects', href: '/project' },
+  { icon: Cpu, label: 'Projects', href: '/projects' },
   { icon: Newspaper, label: 'News', href: '/news' },
   { icon: Radio, label: 'Media', href: '/media' },
   { icon: User, label: 'About Us', href: '/about' },
@@ -28,7 +28,7 @@ export function CustomSidebarMenu() {
         <Menu className="h-6 w-6" />
       </Button>
       <div
-        className={`fixed inset-y-0 right-0 z-50 w-64 transform bg-background p-6 shadow-lg transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 right-0 z-50 w-64 transform bg-black p-6 shadow-lg transition-transform duration-300 ease-in-out ${
           open ? 'translate-x-0' : 'translate-x-full'
         } md:translate-x-0`}
       >

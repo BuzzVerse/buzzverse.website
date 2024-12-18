@@ -29,8 +29,8 @@ const page = async () => {
   const projects = await fetchProjects();
   return (
     <div className="container mx-auto py-40 px-4">
-      <div className="text-center mb-12">
-        <h1 className="text-7xl font-bold mb-4">LoRa Technology</h1>
+      <div className="text-center mb-20">
+        <h1 className="text-7xl font-bold mb-4">Our Workshop</h1>
         <p className="text-xl text-muted-foreground">
           Revolutionizing IoT Communication
         </p>

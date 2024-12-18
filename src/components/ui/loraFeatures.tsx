@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './card'
 
 const loraFeatures = () => {
   return (
-    <section className="mb-16">
+    <section className="my-16">
         <h2 className="text-3xl font-semibold mb-8 text-center">
           Key Features of LoRa
         </h2>
