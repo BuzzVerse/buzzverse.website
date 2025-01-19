@@ -52,7 +52,7 @@ export function TimelineDemo() {
             Members of the science club decided to carry out embedded projects based on Lora technologies
           </p>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            This was the year in which the first club project "Bee Monitor" was created
+            This was the year in which the first club project &quot;Bee Monitor&quot; was created
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
