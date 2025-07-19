@@ -5,10 +5,28 @@ interface TeamMember {
   id: number;
   documentId: string;
   name: string;
-  description: string;
+  description: string | null;
+  Role: string[];
   photo?: {
+    id: number;
+    documentId: string;
+    name: string;
     url: string;
-  };
+    width: number;
+    height: number;
+    formats?: {
+      thumbnail?: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      small?: {
+        url: string;
+        width: number;
+        height: number;
+      };
+    };
+  } | null;
 }
 
 interface OurTeamProps {
@@ -17,7 +35,34 @@ interface OurTeamProps {
 
 // Funkcja pomocnicza do wyodrębnienia adresu URL obrazu z pola 'photo'
 const extractImageUrl = (member: TeamMember) => {
-  return member.photo?.url ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${member.photo.url}` : '';
+  if (!member.photo?.url) return '';
+  
+  // Użyj thumbnail jeśli dostępny, w przeciwnym razie oryginalny obraz
+  const imageUrl = member.photo.formats?.thumbnail?.url || member.photo.url;
+  return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+};
+
+// Funkcja pomocnicza do wyodrębnienia roli członka zespołu
+const formatRoles = (roles: string[]) => {
+  if (!roles || roles.length === 0) return 'Member';
+  
+  // Tłumaczenie ról na bardziej czytelne nazwy
+  const roleTranslations: { [key: string]: string } = {
+    'president': 'President',
+    'vice-president': 'Vice President',
+    'secretary': 'Secretary',
+    'tutor': 'Tutor',
+    'student': 'Student',
+    'member': 'Member',
+    'frontend': 'Frontend Developer',
+    'backend': 'Backend Developer',
+    'embeded': 'Embedded Systems',
+    'mobile': 'Mobile Developer',
+    'cloud': 'Cloud Engineer'
+  };
+  
+  const translatedRoles = roles.map(role => roleTranslations[role] || role);
+  return translatedRoles.slice(0, 2).join(', '); // Pokaż maksymalnie 2 role
 };
 
 const OurTeam: React.FC<OurTeamProps> = ({ teamMembers }) => {
@@ -51,9 +96,14 @@ const OurTeam: React.FC<OurTeamProps> = ({ teamMembers }) => {
               <CardTitle className="text-lg font-semibold mb-1">
                 {member.name}
               </CardTitle>
-              <p className="text-sm text-muted-foreground">
-                {member.description}
+              <p className="text-sm text-muted-foreground mb-2">
+                {formatRoles(member.Role)}
               </p>
+              {member.description && (
+                <p className="text-xs text-muted-foreground">
+                  {member.description}
+                </p>
+              )}
             </CardContent>
           </Card>
         ))}
