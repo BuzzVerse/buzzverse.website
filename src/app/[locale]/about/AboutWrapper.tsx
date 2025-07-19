@@ -131,6 +131,7 @@ const AboutWrapper: React.FC<AboutWrapperProps> = ({ teamMembers }) => {
                     alt="BuzzVerse Team"
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               </div>

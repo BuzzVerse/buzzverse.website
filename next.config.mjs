@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
+    // Cloudflare Pages optimization
+    trailingSlash: true,
     images: {
+        // Removed unoptimized to fix image rendering issues
         remotePatterns: [
             {
                 protocol: 'https',

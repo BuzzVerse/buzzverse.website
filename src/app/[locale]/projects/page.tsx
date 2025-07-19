@@ -293,10 +293,11 @@ const Page = () => {
                     {project.photo?.url && (
                       <div className="relative h-48 overflow-hidden">
                         <Image
-                          src={`https://strapi.buzzverse.dev${project.photo.url}`}
+                          src={`https://strapi.buzzverse.dev${project.photo.formats?.medium?.url || project.photo.url}`}
                           alt={project.name}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent" />
                       </div>
