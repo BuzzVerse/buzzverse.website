@@ -233,13 +233,19 @@ export function Globe({ globeConfig, data }: WorldProps) {
 }
 
 export function WebGLRendererConfig() {
-  const { gl, size } = useThree();
+  const { gl, size, camera } = useThree();
 
   useEffect(() => {
-    gl.setPixelRatio(window.devicePixelRatio);
-    gl.setSize(size.width, size.height);
-    gl.setClearColor(0xffaaff, 0);
-  }, []);
+    gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    gl.setSize(size.width, size.height, false);
+    gl.setClearColor(0x000000, 0);
+    
+    // Update camera aspect ratio
+    if ('aspect' in camera) {
+      camera.aspect = size.width / size.height;
+      camera.updateProjectionMatrix();
+    }
+  }, [gl, size.width, size.height, camera]);
 
   return null;
 }
@@ -249,36 +255,53 @@ export function World(props: WorldProps) {
   const scene = new Scene();
   scene.fog = new Fog(0xffffff, 400, 2000);
   const isDesktop = useMediaQuery({ minWidth: 1024 });
+  
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
-      <WebGLRendererConfig />
-      <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
-      <directionalLight
-        color={globeConfig.directionalLeftLight}
-        position={new Vector3(-400, 100, 400)}
-      />
-      <directionalLight
-        color={globeConfig.directionalTopLight}
-        position={new Vector3(-200, 500, 200)}
-      />
-      <pointLight
-        color={globeConfig.pointLight}
-        position={new Vector3(-200, 500, 200)}
-        intensity={0.8}
-      />
-      <Globe {...props} />
-      <OrbitControls
-        enablePan={false}
-        enableZoom={false}
-        minDistance={cameraZ}
-        maxDistance={cameraZ}
-        autoRotateSpeed={1}
-        autoRotate={true}
-        minPolarAngle={Math.PI / 3.5}
-        maxPolarAngle={Math.PI - Math.PI / 3}
-        enableRotate={isDesktop}
-      />
-    </Canvas>
+    <div style={{ width: '100%', height: '100%', minHeight: '300px', position: 'relative' }}>
+      <Canvas 
+        scene={scene} 
+        camera={new PerspectiveCamera(50, aspect, 180, 1800)}
+        style={{ width: '100%', height: '100%', display: 'block' }}
+        dpr={[1, 2]}
+        performance={{ min: 0.5 }}
+        resize={{ scroll: false, debounce: { scroll: 50, resize: 0 } }}
+        onCreated={({ gl, camera, size }) => {
+          gl.setSize(size.width, size.height, false);
+          if ('aspect' in camera) {
+            camera.aspect = size.width / size.height;
+            camera.updateProjectionMatrix();
+          }
+        }}
+      >
+        <WebGLRendererConfig />
+        <ambientLight color={globeConfig.ambientLight} intensity={0.6} />
+        <directionalLight
+          color={globeConfig.directionalLeftLight}
+          position={new Vector3(-400, 100, 400)}
+        />
+        <directionalLight
+          color={globeConfig.directionalTopLight}
+          position={new Vector3(-200, 500, 200)}
+        />
+        <pointLight
+          color={globeConfig.pointLight}
+          position={new Vector3(-200, 500, 200)}
+          intensity={0.8}
+        />
+        <Globe {...props} />
+        <OrbitControls
+          enablePan={false}
+          enableZoom={false}
+          minDistance={cameraZ}
+          maxDistance={cameraZ}
+          autoRotateSpeed={1}
+          autoRotate={true}
+          minPolarAngle={Math.PI / 3.5}
+          maxPolarAngle={Math.PI - Math.PI / 3}
+          enableRotate={isDesktop}
+        />
+      </Canvas>
+    </div>
   );
 }
 

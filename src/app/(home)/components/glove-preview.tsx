@@ -32,7 +32,25 @@ export function GitHubGlobe() {
     };
 
     useEffect(() => {
-        window.dispatchEvent(new Event("resize"));
+        // Initial resize after mount
+        const initialResize = () => {
+            window.dispatchEvent(new Event("resize"));
+        };
+        
+        // Delay initial resize to ensure proper initialization
+        const timer = setTimeout(initialResize, 100);
+        
+        // Add resize listener for window changes
+        const handleResize = () => {
+            window.dispatchEvent(new Event("resize"));
+        };
+        
+        window.addEventListener('resize', handleResize);
+        
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     return (
