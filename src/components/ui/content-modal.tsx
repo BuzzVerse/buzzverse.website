@@ -112,7 +112,7 @@ const ContentModal: React.FC<ContentModalProps> = ({ item, isOpen, onClose, type
 
   return (
     <div
-      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
       onClick={handleBackdropClick}
     >
       <div className="bg-neutral-900 rounded-2xl max-w-4xl max-h-[90vh] w-full overflow-hidden border border-neutral-700 relative">
@@ -187,12 +187,18 @@ const ContentModal: React.FC<ContentModalProps> = ({ item, isOpen, onClose, type
             )}
 
             {/* Full Content */}
-            {item.content && (
+            {item.content ? (
               <div className="prose prose-invert max-w-none">
                 <div 
                   className="text-neutral-200 leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: item.content.replace(/\n/g, '<br/>') }}
                 />
+              </div>
+            ) : (
+              <div className="bg-neutral-800/50 rounded-lg p-6 text-center">
+                <p className="text-neutral-400">
+                  Pełna treść artykułu będzie dostępna wkrótce...
+                </p>
               </div>
             )}
 
@@ -204,12 +210,14 @@ const ContentModal: React.FC<ContentModalProps> = ({ item, isOpen, onClose, type
               >
                 Zamknij
               </button>
-              <button 
-                onClick={() => window.open(type === 'news' ? '/news' : '/media', '_blank')}
-                className="px-6 py-3 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition-colors"
-              >
-                Zobacz więcej {type === 'news' ? 'news' : 'media'}
-              </button>
+              {type === 'media' && (
+                <button 
+                  onClick={() => window.open('/media', '_blank')}
+                  className="px-6 py-3 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition-colors"
+                >
+                  Zobacz więcej media
+                </button>
+              )}
             </div>
           </div>
         </div>
