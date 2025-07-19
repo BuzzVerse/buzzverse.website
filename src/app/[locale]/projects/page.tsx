@@ -92,7 +92,7 @@ const fetchProjectDetails = async (documentId: string): Promise<Project | null> 
   }
 };
 
-const page = () => {
+const Page = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -388,4 +388,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -108,6 +108,9 @@
       "description": "Skontaktuj się z nami, chętnie odpowiemy na wszystkie pytania.",
       "sendEmail": "Wyślij email",
       "close": "Zamknij"
+    },
+    "common": {
+      "loading": "Ładowanie projektów..."
     }
   },
   "NewsPage": {

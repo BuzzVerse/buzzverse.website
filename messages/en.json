@@ -108,6 +108,9 @@
       "description": "Contact us, we'll be happy to answer all your questions.",
       "sendEmail": "Send email",
       "close": "Close"
+    },
+    "common": {
+      "loading": "Loading projects..."
     }
   },
   "NewsPage": {
