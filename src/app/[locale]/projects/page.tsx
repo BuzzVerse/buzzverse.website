@@ -5,7 +5,7 @@ import { Wifi, Zap, Globe, Shield, Battery, Cpu, ArrowRight, ExternalLink } from
 import Image from "next/image";
 import Link from "next/link";
 import ProjectModal from "@/components/ui/project-modal";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 interface Project {
   id: number;

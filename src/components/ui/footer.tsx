@@ -4,7 +4,7 @@ import Image from "next/image"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { Github, Instagram, Link, Linkedin, Mail, MapPin } from "lucide-react"
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 export function Footer() {
   const t = useTranslations('Footer');

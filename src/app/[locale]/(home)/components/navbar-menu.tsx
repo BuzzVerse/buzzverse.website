@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import ProjectModal from "@/components/ui/project-modal";
 import ContentModal from "@/components/ui/content-modal";
-import { useTranslations } from 'next-intl';
+import { useTranslations, createLocalePath } from '@/lib/translations';
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 
 interface Project {
@@ -171,10 +171,10 @@ export function Navbar({ className }: { className?: string }) {
 
   const scrollToSection = (sectionId: string) => {
     // Navigate to about page and then scroll to section
-    router.push(`/about#${sectionId}`);
+    router.push(createLocalePath(`/about#${sectionId}`));
     
     // If we're already on the about page, scroll directly
-    if (window.location.pathname === '/about') {
+    if (window.location.pathname.includes('/about')) {
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -211,10 +211,10 @@ export function Navbar({ className }: { className?: string }) {
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 hidden md:block", className)}
     >
       <Menu setActive={setActive}>
-        <Link href="/">{t('home')}</Link>
+        <Link href={createLocalePath('/')}>{t('home')}</Link>
         <MenuItem setActive={setActive} active={active} item={t('projects')}>
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/projects">{t('allProjects')}</HoveredLink>
+            <HoveredLink href={createLocalePath('/projects')}>{t('allProjects')}</HoveredLink>
             
             {/* Recent Projects from Strapi */}
             {recentProjects.length > 0 && (
@@ -254,7 +254,7 @@ export function Navbar({ className }: { className?: string }) {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item={t('news')}>
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/news">All News</HoveredLink>
+            <HoveredLink href={createLocalePath('/news')}>All News</HoveredLink>
             
             {/* Recent News from Strapi */}
             {recentNews.length > 0 && (
@@ -297,7 +297,7 @@ export function Navbar({ className }: { className?: string }) {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item={t('media')}>
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/media">{t('gallery')}</HoveredLink>
+            <HoveredLink href={createLocalePath('/media')}>{t('gallery')}</HoveredLink>
             
             {/* Recent Media from Strapi */}
             {recentMedia.length > 0 && (
@@ -307,7 +307,7 @@ export function Navbar({ className }: { className?: string }) {
                   <div className="grid grid-cols-3 gap-1">
                     {recentMedia.map((media) => (
                       <div key={media.id} className="group">
-                        <HoveredLink href={`/media#${media.documentId}`}>
+                        <HoveredLink href={createLocalePath(`/media#${media.documentId}`)}>
                           <div className="w-12 h-12 rounded overflow-hidden bg-neutral-700">
                             {extractMediaImageUrl(media) ? (
                               <img
@@ -333,7 +333,7 @@ export function Navbar({ className }: { className?: string }) {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item={t('about')}>
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/about">{t('aboutBuzzverse')}</HoveredLink>
+            <HoveredLink href={createLocalePath('/about')}>{t('aboutBuzzverse')}</HoveredLink>
             <button
               onClick={() => scrollToSection('team-section')}
               className="text-left text-sm hover:text-primary transition-colors"

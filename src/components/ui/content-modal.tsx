@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { X, Calendar, User, Play, ImageIcon } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 interface NewsItem {
   id: number;

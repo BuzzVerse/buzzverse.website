@@ -3,7 +3,7 @@ import React from "react";
 import {PinContainer} from "@/components/ui/animated-pin-demo";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 export function BeeMonitorPin() {
     const t = useTranslations('HomePage.beeMonitorProject');

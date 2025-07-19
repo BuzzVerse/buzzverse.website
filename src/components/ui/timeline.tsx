@@ -6,7 +6,7 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 interface TimelineEntry {
   title: string;

@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import ContentModal from '@/components/ui/content-modal';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 interface NewsItem {
   id: number;

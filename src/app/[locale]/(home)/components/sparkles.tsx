@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import {SparklesCore} from "@/components/ui/sparkles-core";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 export function Sparkles() {
     const t = useTranslations('HomePage.hero');

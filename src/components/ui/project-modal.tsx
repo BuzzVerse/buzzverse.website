@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { X, Calendar, User, ExternalLink } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 interface Project {
   id: number;

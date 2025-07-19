@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 interface TeamMember {
   id: number;

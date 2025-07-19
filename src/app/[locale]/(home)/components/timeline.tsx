@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 export function TimelineDemo() {
   const t = useTranslations('AboutPage.timeline');

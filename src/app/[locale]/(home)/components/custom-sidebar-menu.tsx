@@ -3,8 +3,8 @@
 import * as React from 'react'
 import { Menu, X, Home, Cpu, Newspaper, Radio, User, Globe } from 'lucide-react'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
-import { useLocale } from 'next-intl'
+import { useTranslations } from '@/lib/translations'
+import { useLocale } from '@/lib/translations'
 import { useRouter, usePathname as useNextPathname } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'

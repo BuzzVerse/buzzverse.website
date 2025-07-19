@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 export function AboutTeamStory() {
     const t = useTranslations('HomePage.features');

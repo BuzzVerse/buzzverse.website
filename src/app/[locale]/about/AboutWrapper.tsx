@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { TimelineDemo } from '../(home)/components/timeline';
 import OurTeam from '@/components/ui/ourteam';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, Target, Lightbulb, Zap } from 'lucide-react';
 import Image from 'next/image';

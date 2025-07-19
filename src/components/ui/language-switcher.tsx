@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale } from '@/lib/translations';
 import { useRouter, usePathname as useNextPathname } from 'next/navigation';
 
 export function LanguageSwitcher() {

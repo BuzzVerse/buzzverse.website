@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { sampleArcs } from "@/data/sample-arcs";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '@/lib/translations';
 
 const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World), {
     ssr: false,
