@@ -130,6 +130,24 @@
     "ourTeamTitle": "Nasz zespół",
     "timelineTitle": "Historia BuzzVerse",
     "timelineDescription": "Pracujemy nad BuzzVerse od 3 lat. Oto historia naszego koła naukowego.",
+    "values": {
+      "mission": {
+        "title": "Nasza Misja",
+        "description": "Wspieranie innowacji w technologii IoT i inspirowanie następnego pokolenia inżynierów poprzez praktyczną naukę i projekty współpracy."
+      },
+      "innovation": {
+        "title": "Innowacje Przede Wszystkim",
+        "description": "Wierzymy w przesuwanie granic tego, co możliwe dzięki najnowocześniejszej technologii LoRa i systemom wbudowanym."
+      },
+      "collaboration": {
+        "title": "Współpraca",
+        "description": "Budowanie społeczności pasjonatów studentów i profesjonalistów z branży pracujących razem nad wspólnymi celami."
+      },
+      "impact": {
+        "title": "Wpływ",
+        "description": "Tworzenie projektów, które mają rzeczywisty wpływ na naszą lokalną społeczność i szerszy krajobraz technologiczny."
+      }
+    },
     "timeline": {
       "2022": {
         "description": "Grupa studentów postanowiła utworzyć koło naukowe"

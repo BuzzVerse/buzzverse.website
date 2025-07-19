@@ -130,6 +130,24 @@
     "ourTeamTitle": "Our Team",
     "timelineTitle": "Timeline of BuzzVerse",
     "timelineDescription": "We've been working on BuzzVerse for the past 3 years. Here's a timeline of our science club.",
+    "values": {
+      "mission": {
+        "title": "Our Mission",
+        "description": "To foster innovation in IoT technology and inspire the next generation of engineers through hands-on learning and collaborative projects."
+      },
+      "innovation": {
+        "title": "Innovation First",
+        "description": "We believe in pushing the boundaries of what's possible with cutting-edge LoRa technology and embedded systems."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Building a community of passionate students and industry professionals working together towards common goals."
+      },
+      "impact": {
+        "title": "Impact",
+        "description": "Creating projects that make a real difference in our local community and the broader technology landscape."
+      }
+    },
     "timeline": {
       "2022": {
         "description": "Group of students decided to create a science club"
