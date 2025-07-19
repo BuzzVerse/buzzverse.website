@@ -1,4 +1,6 @@
 // Simple translation utility for Cloudflare compatibility
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import enMessages from '../../messages/en.json';
 import plMessages from '../../messages/pl.json';
 
@@ -9,25 +11,51 @@ const messages = {
   pl: plMessages,
 };
 
-// Function to detect current locale from URL
+// Function to detect locale from pathname
+export function getLocaleFromPathname(pathname: string): Locale {
+  console.log('🌍 Checking pathname:', pathname);
+  if (pathname.startsWith('/pl')) {
+    console.log('🇵🇱 Detected Polish locale');
+    return 'pl';
+  }
+  if (pathname.startsWith('/en')) {
+    console.log('🇺🇸 Detected English locale');
+    return 'en';
+  }
+  console.log('🔄 Using default locale: en');
+  return 'en';
+}
+
+// Function to detect current locale from URL (client-side only)
 export function getCurrentLocale(): Locale {
   if (typeof window !== 'undefined') {
-    const pathname = window.location.pathname;
-    console.log('🌍 Current pathname:', pathname);
-    if (pathname.startsWith('/pl')) {
-      console.log('🇵🇱 Detected Polish locale');
-      return 'pl';
-    }
-    if (pathname.startsWith('/en')) {
-      console.log('🇺🇸 Detected English locale');
-      return 'en';
-    }
+    return getLocaleFromPathname(window.location.pathname);
   }
   
-  // Server-side: try to get locale from URL params (if available in Next.js context)
-  // This is a fallback - for proper SSR, the locale should be passed as a parameter
+  // Server-side fallback
   console.log('🔄 Using default locale: en (SSR or fallback)');
-  return 'en'; // Default fallback
+  return 'en';
+}
+
+// Reactive hook for locale that updates when pathname changes
+export function useLocale(): Locale {
+  const pathname = usePathname();
+  const [locale, setLocale] = useState<Locale>('en'); // Always start with 'en' for SSR consistency
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const newLocale = getLocaleFromPathname(pathname);
+    console.log('🔄 Locale changed to:', newLocale, 'from pathname:', pathname);
+    setLocale(newLocale);
+  }, [pathname]);
+
+  // During SSR or before mount, always return 'en' to match server rendering
+  if (!mounted) {
+    return 'en';
+  }
+
+  return locale;
 }
 
 // Helper function to create locale-aware paths
@@ -67,7 +95,7 @@ export function getTranslations(locale?: Locale) {
 }
 
 export function useTranslations(namespace?: string) {
-  const currentLocale = getCurrentLocale();
+  const currentLocale = useLocale(); // Use reactive hook instead of getCurrentLocale
   console.log('🎯 Using locale for translations:', currentLocale);
   
   return function t(key: string): string {
@@ -76,10 +104,6 @@ export function useTranslations(namespace?: string) {
     console.log(`🔤 Translation for "${fullKey}" (${currentLocale}):`, translation);
     return translation;
   };
-}
-
-export function useLocale(): Locale {
-  return getCurrentLocale();
 }
 
 // Create a mock next-intl module for compatibility
