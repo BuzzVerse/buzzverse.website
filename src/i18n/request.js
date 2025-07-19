@@ -3,7 +3,7 @@ import { getRequestConfig } from 'next-intl/server';
 const locales = ['en', 'pl'];
 
 export default getRequestConfig(async ({ locale }) => {
-  // Validate locale and fallback to default if invalid
+  // Validate locale and fallback to default if invalid  
   const validLocale = locales.includes(locale) ? locale : 'en';
 
   return {
