@@ -1,8 +1,53 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+interface Project {
+  id: number;
+  documentId: string;
+  name: string;
+  description: string;
+  photo?: {
+    url: string;
+    formats?: {
+      thumbnail?: { url: string };
+      small?: { url: string };
+    };
+  };
+}
+
+interface NewsItem {
+  id: number;
+  documentId: string;
+  Title: string;
+  description?: string;
+  date: string;
+  photo?: {
+    url: string;
+    formats?: {
+      thumbnail?: { url: string };
+      small?: { url: string };
+    };
+  };
+}
+
+interface MediaItem {
+  id: number;
+  documentId: string;
+  Title: string;
+  Description?: string;
+  Date: string;
+  photo?: {
+    url: string;
+    formats?: {
+      thumbnail?: { url: string };
+      small?: { url: string };
+    };
+  };
+}
 
 export function NavbarDemo() {
   return (
@@ -17,6 +62,86 @@ export function NavbarDemo() {
 
 export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
+  const [recentProjects, setRecentProjects] = useState<Project[]>([]);
+  const [recentNews, setRecentNews] = useState<NewsItem[]>([]);
+  const [recentMedia, setRecentMedia] = useState<MediaItem[]>([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchRecentData = async () => {
+      try {
+        // Fetch recent projects
+        const projectsResponse = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=photo&pagination[limit]=3&sort=createdAt:desc`);
+        if (projectsResponse.ok) {
+          const projectsData = await projectsResponse.json();
+          setRecentProjects(projectsData.data || []);
+        }
+
+        // Fetch recent news
+        const newsResponse = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/newses?populate=photo&pagination[limit]=3&sort=date:desc`);
+        if (newsResponse.ok) {
+          const newsData = await newsResponse.json();
+          setRecentNews(newsData.data || []);
+        }
+
+        // Fetch recent media
+        const mediaResponse = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/medias?populate=photo&pagination[limit]=3&sort=Date:desc`);
+        if (mediaResponse.ok) {
+          const mediaData = await mediaResponse.json();
+          setRecentMedia(mediaData.data || []);
+        }
+      } catch (error) {
+        console.error('Error fetching recent data:', error);
+      }
+    };
+
+    fetchRecentData();
+  }, []);
+
+  const extractImageUrl = (project: Project) => {
+    if (!project.photo?.url) return '';
+    const imageUrl = project.photo.formats?.small?.url || project.photo.formats?.thumbnail?.url || project.photo.url;
+    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+  };
+
+  const extractNewsImageUrl = (news: NewsItem) => {
+    if (!news.photo?.url) return '';
+    const imageUrl = news.photo.formats?.small?.url || news.photo.formats?.thumbnail?.url || news.photo.url;
+    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+  };
+
+  const extractMediaImageUrl = (media: MediaItem) => {
+    if (!media.photo?.url) return '';
+    const imageUrl = media.photo.formats?.small?.url || media.photo.formats?.thumbnail?.url || media.photo.url;
+    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+  };
+
+  const formatDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('pl-PL', {
+        month: 'short',
+        day: 'numeric'
+      });
+    } catch {
+      return '';
+    }
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    // Navigate to about page and then scroll to section
+    router.push(`/about#${sectionId}`);
+    
+    // If we're already on the about page, scroll directly
+    if (window.location.pathname === '/about') {
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  };
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 hidden md:block", className)}
@@ -25,51 +150,124 @@ export function Navbar({ className }: { className?: string }) {
         <Link href="/">Home</Link>
         <MenuItem setActive={setActive} active={active} item="Projects">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/projects">Lora</HoveredLink>
-            <HoveredLink href="/projects">Our latest projects</HoveredLink>
-            <HoveredLink href="/projects">Bee monitor</HoveredLink>
+            <HoveredLink href="/projects">All Projects</HoveredLink>
+            
+            {/* Recent Projects from Strapi */}
+            {recentProjects.length > 0 && (
+              <>
+                <div className="border-t border-neutral-700 pt-3 mt-3">
+                  <p className="text-xs text-neutral-400 mb-2">Recent Projects:</p>
+                  <div className="grid gap-2">
+                    {recentProjects.map((project) => (
+                      <div key={project.id} className="flex items-center space-x-3 p-2 rounded hover:bg-neutral-800 transition-colors">
+                        <div className="w-8 h-8 rounded overflow-hidden bg-neutral-700 flex-shrink-0">
+                          {extractImageUrl(project) ? (
+                            <img
+                              src={extractImageUrl(project)}
+                              alt={project.name}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-neutral-600"></div>
+                          )}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <HoveredLink href={`/projects#${project.documentId}`}>
+                            <span className="text-xs font-medium truncate">{project.name}</span>
+                          </HoveredLink>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="News">
-          <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-            <ProductItem
-              title="Algochurn"
-              href="/news"
-              src="https://assets.aceternity.com/demos/algochurn.webp"
-              description="Prepare for tech interviews like never before."
-            />
-            <ProductItem
-              title="Tailwind Master Kit"
-              href="/news"
-              src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-              description="Production ready Tailwind css components for your next project"
-            />
-            <ProductItem
-              title="Moonbeam"
-              href="/news"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-              description="Never write from scratch again. Go from idea to blog in minutes."
-            />
-            <ProductItem
-              title="Rogue"
-              href="/news"
-              src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-              description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-            />
+          <div className="flex flex-col space-y-4 text-sm">
+            <HoveredLink href="/news">All News</HoveredLink>
+            
+            {/* Recent News from Strapi */}
+            {recentNews.length > 0 && (
+              <>
+                <div className="border-t border-neutral-700 pt-3 mt-3">
+                  <p className="text-xs text-neutral-400 mb-2">Recent News:</p>
+                  <div className="grid gap-2">
+                    {recentNews.map((news) => (
+                      <div key={news.id} className="flex items-center space-x-3 p-2 rounded hover:bg-neutral-800 transition-colors">
+                        <div className="w-8 h-8 rounded overflow-hidden bg-neutral-700 flex-shrink-0">
+                          {extractNewsImageUrl(news) ? (
+                            <img
+                              src={extractNewsImageUrl(news)}
+                              alt={news.Title}
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-neutral-600 flex items-center justify-center">
+                              <span className="text-xs text-neutral-400">📰</span>
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <HoveredLink href={`/news#${news.documentId}`}>
+                            <span className="text-xs font-medium truncate">{news.Title}</span>
+                          </HoveredLink>
+                          <p className="text-xs text-neutral-500">{formatDate(news.date)}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Media">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/media">Hobby</HoveredLink>
-            <HoveredLink href="/media">Individual</HoveredLink>
-            <HoveredLink href="/media">Team</HoveredLink>
-            <HoveredLink href="/media">Enterprise</HoveredLink>
+            <HoveredLink href="/media">Gallery</HoveredLink>
+            
+            {/* Recent Media from Strapi */}
+            {recentMedia.length > 0 && (
+              <>
+                <div className="border-t border-neutral-700 pt-3 mt-3">
+                  <p className="text-xs text-neutral-400 mb-2">Recent Media:</p>
+                  <div className="grid grid-cols-3 gap-1">
+                    {recentMedia.map((media) => (
+                      <div key={media.id} className="group">
+                        <HoveredLink href={`/media#${media.documentId}`}>
+                          <div className="w-12 h-12 rounded overflow-hidden bg-neutral-700">
+                            {extractMediaImageUrl(media) ? (
+                              <img
+                                src={extractMediaImageUrl(media)}
+                                alt={media.Title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-neutral-600 flex items-center justify-center">
+                                <span className="text-xs">📷</span>
+                              </div>
+                            )}
+                          </div>
+                          <p className="text-xs mt-1 truncate text-center w-12">{media.Title}</p>
+                        </HoveredLink>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="About Us">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/about">Timeline</HoveredLink>
-            <HoveredLink href="/about">Our Team</HoveredLink>
+            <HoveredLink href="/about">About BuzzVerse</HoveredLink>
+            <button
+              onClick={() => scrollToSection('team-section')}
+              className="text-left text-sm hover:text-primary transition-colors"
+            >
+              Our Team
+            </button>
           </div>
         </MenuItem>
       </Menu>

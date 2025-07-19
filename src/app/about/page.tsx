@@ -1,6 +1,5 @@
 import React from 'react';
-import { TimelineDemo } from '../(home)/components/timeline';
-import OurTeam from '@/components/ui/ourteam';
+import AboutWrapper from './AboutWrapper';
 
 interface TeamMember {
   id: number;
@@ -70,10 +69,7 @@ const AboutUs = async () => {
   const teamMembers = await fetchTeamMembers();
 
   return (
-    <div>
-      <TimelineDemo />
-      <OurTeam teamMembers={teamMembers} />
-    </div>
+    <AboutWrapper teamMembers={teamMembers} />
   );
 };
 
