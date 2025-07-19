@@ -96,7 +96,6 @@ export function Footer() {
           </div>
         </div>
       </CardContent>
-      <Separator className="bg-neutral-800" />
       <CardFooter className="p-6 flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0">
         <p className="text-sm text-neutral-400">
           &copy; {t('copyright')} {new Date().getFullYear()}

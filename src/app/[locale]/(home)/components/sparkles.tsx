@@ -20,9 +20,9 @@ export function Sparkles() {
             <div className="w-full h-32 md:h-40 relative mt-8">
                 {/* Gradients */}
                 <div
-                    className="absolute left-1/2 transform -translate-x-1/2 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[2px] w-1/2 md:w-1/3 "/>
+                    className="absolute left-1/2 transform -translate-x-1/2 top-0 bg-gradient-to-r from-transparent via-buzzprimary to-transparent h-[2px] w-1/2 md:w-1/3 "/>
                 <div
-                    className="absolute left-1/2 transform -translate-x-1/2 top-0 bg-gradient-to-r from-transparent via-Buzzprimary to-transparent h-[5px] w-2/3 md:w-1/2 blur-sm"/>
+                    className="absolute left-1/2 transform -translate-x-1/2 top-0 bg-gradient-to-r from-transparent via-buzzprimary to-transparent h-[5px] w-2/3 md:w-1/2 blur-sm"/>
 
                 {/* Core component */}
                 <SparklesCore

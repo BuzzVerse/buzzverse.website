@@ -29,21 +29,19 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <LanguageSwitcher />
-          <CustomSidebarMenu />
-          <Navbar/>
-          {children}
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+    <div lang={locale}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem={false}
+        disableTransitionOnChange
+      >
+        <LanguageSwitcher />
+        <CustomSidebarMenu />
+        <Navbar/>
+        {children}
+        <Footer />
+      </ThemeProvider>
+    </div>
   );
 }

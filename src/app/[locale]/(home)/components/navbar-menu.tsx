@@ -336,7 +336,7 @@ export function Navbar({ className }: { className?: string }) {
             <HoveredLink href={createLocalePath('/about')}>{t('aboutBuzzverse')}</HoveredLink>
             <button
               onClick={() => scrollToSection('team-section')}
-              className="text-left text-sm hover:text-primary transition-colors"
+              className="text-left text-sm hover:text-primary transition-colors text-neutral-700 dark:text-neutral-200"
             >
               {t('ourTeam')}
             </button>

@@ -210,7 +210,7 @@ const NewsPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-24 px-4">
+      <div className="min-h-screen pt-24 px-4 bg-neutral-950">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-buzzprimary mx-auto"></div>
@@ -222,7 +222,7 @@ const NewsPage = () => {
   }
 
   return (
-    <div className="min-h-screen pt-24 px-4">
+    <div className="min-h-screen pt-24 px-4 bg-neutral-950">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         <div className="text-center py-16">
@@ -252,7 +252,7 @@ const NewsPage = () => {
               const isLatest = index === 0;
               
               return (
-                <Card key={item.id} className={`overflow-hidden hover:shadow-lg transition-all duration-300 ${isLatest ? 'border-buzzprimary/20 bg-buzzprimary/5' : ''}`}>
+                <Card key={item.id} className={`overflow-hidden hover:shadow-lg transition-all duration-300 ${isLatest ? 'border-neutral-700 bg-neutral-900/50' : 'bg-neutral-900/30 border-neutral-800'}`}>
                   <div className="flex flex-col md:flex-row">
                     {/* Image Section - Side */}
                     {imageUrl && (
@@ -270,7 +270,7 @@ const NewsPage = () => {
                       {/* Header with badges */}
                       <div className="flex items-center gap-3 mb-4">
                         {isLatest && (
-                          <Badge className="bg-buzzprimary text-white">
+                          <Badge className="bg-neutral-800 text-neutral-300 border border-neutral-700">
                             Latest
                           </Badge>
                         )}
@@ -301,7 +301,7 @@ const NewsPage = () => {
                       {/* Read More Button */}
                       <button 
                         onClick={() => handleNewsClick(item)}
-                        className="inline-flex items-center gap-2 text-buzzprimary hover:text-buzzprimary/80 font-medium transition-colors group"
+                        className="inline-flex items-center gap-2 text-neutral-300 hover:text-white font-medium transition-colors group"
                       >
                         {t('readMore')}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

@@ -153,7 +153,7 @@ const MediaPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-20 px-4">
+      <div className="min-h-screen pt-20 px-4 bg-neutral-950">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-buzzprimary mx-auto"></div>
@@ -165,7 +165,7 @@ const MediaPage = () => {
   }
 
   return (
-    <div className="min-h-screen pt-24 px-4">
+    <div className="min-h-screen pt-24 px-4 bg-neutral-950">
       <div className="container mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center py-16">
