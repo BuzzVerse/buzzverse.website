@@ -1,0 +1,201 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "news": "News",
+    "media": "Media",
+    "about": "About Us",
+    "allProjects": "All Projects",
+    "recentProjects": "Recent Projects:",
+    "recentNews": "Recent News:",
+    "recentMedia": "Recent Media:",
+    "aboutBuzzverse": "About BuzzVerse",
+    "ourTeam": "Our Team",
+    "gallery": "Gallery"
+  },
+  "HomePage": {
+    "welcome": "Welcome to BuzzVerse",
+    "description": "We are a group of students dedicated to fostering a love for science and collaboration within our university.",
+    "hero": {
+      "title": "BuzzVerse",
+      "subtitle": "Innovation Hub for IoT Technology",
+      "description": "Join our science club and explore the cutting-edge world of IoT communication with LoRa technology"
+    },
+    "features": {
+      "title": "What We Do",
+      "subtitle": "Discover our focus areas"
+    },
+    "aboutContent": {
+      "aboutUs": {
+        "title": "About us",
+        "description": "The BuzzVerse Science Club is a team of information technology enthusiasts. The aim of the club is to influence real changes in the environment and to develop skills related to embedded systems, programming as well as the design and implementation of embedded devices."
+      },
+      "team": {
+        "title": "Team",
+        "description": "We are a dynamic and ambitious team consisting of students from various fields. We cooperate with GlobalLogic specialists. Manager, programmer or supervisor - Each member of our science club brings unique knowledge and gains new experience."
+      },
+      "projects": {
+        "title": "Projects",
+        "description": "As part of the club's activities, we implement projects that allow us to develop practical skills. Thanks to the support of local companies and the university, our projects have a real impact on the development of technology in the Zielona Góra region."
+      },
+      "beeMonitor": {
+        "title": "Bee Monitor",
+        "description": "Our latest project is Bee Monitor. Thanks to the LoRa technology that enables communication over long distances, we can monitor parameters such as temperature or humidity in a given place. The collected data is transferred to the mast and then to the database, where it is finally presented on our website."
+      }
+    },
+    "beeMonitorProject": {
+      "title": "BuzzVerse Project",
+      "projectName": "BeeMonitor",
+      "description": "Check our source code"
+    }
+  },
+  "ProjectsPage": {
+    "hero": {
+      "badge": "Innovation Hub",
+      "title": "Our Workshop",
+      "description": "Revolutionizing IoT Communication with cutting-edge LoRa Technology"
+    },
+    "technology": {
+      "badge": "Technology Focus",
+      "title": "What technology our projects use?",
+      "description": "Our science club is developing cutting-edge embedded systems with a focus on device-to-device communication. We've chosen LoRa technology as our primary communication protocol for its exceptional range and efficiency.",
+      "learnMore": "Learn more about LoRa"
+    },
+    "features": {
+      "badge": "Key Features",
+      "title": "Why LoRa?",
+      "description": "Discover the powerful features that make LoRa the perfect choice for our IoT projects",
+      "longRange": {
+        "title": "Long Range",
+        "description": "Cover several kilometers in urban areas and up to 15 km in rural settings"
+      },
+      "lowPower": {
+        "title": "Low Power", 
+        "description": "Devices can operate for years on a single battery charge"
+      },
+      "wideCoverage": {
+        "title": "Wide Coverage",
+        "description": "A single gateway can cover thousands of end-devices"
+      },
+      "secure": {
+        "title": "Secure",
+        "description": "Built-in encryption and security features"
+      },
+      "energyEfficient": {
+        "title": "Energy Efficient",
+        "description": "Optimized for battery-powered IoT devices"
+      },
+      "costEffective": {
+        "title": "Cost Effective",
+        "description": "Low infrastructure and operational costs"
+      }
+    },
+    "featuredProjects": {
+      "badge": "Our Work",
+      "title": "Featured Projects",
+      "description": "Explore our innovative projects that showcase the power of LoRa technology",
+      "learnMore": "Learn more",
+      "comingSoon": "Coming Soon",
+      "developmentMessage": "Our exciting projects are currently in development"
+    },
+    "cta": {
+      "title": "Ready to innovate with us?",
+      "description": "Join our science club and be part of the next generation of IoT innovators",
+      "button": "Get in Touch"
+    },
+    "contactPopup": {
+      "title": "Feel free to write to us!",
+      "description": "Contact us, we'll be happy to answer all your questions.",
+      "sendEmail": "Send email",
+      "close": "Close"
+    },
+    "common": {
+      "loading": "Loading projects..."
+    }
+  },
+  "NewsPage": {
+    "title": "Latest News",
+    "description": "Stay updated with the latest developments and announcements from BuzzVerse.",
+    "readMore": "Read more",
+    "loading": "Loading news...",
+    "noNews": "No news found",
+    "noNewsMessage": "No news articles are available at the moment."
+  },
+  "MediaPage": {
+    "title": "Media Gallery",
+    "description": "Explore our visual collection showcasing BuzzVerse activities and achievements.",
+    "loading": "Loading media...",
+    "noMedia": "No media found",
+    "noMediaMessage": "No media items are available at the moment."
+  },
+  "AboutPage": {
+    "title": "About BuzzVerse",
+    "ourTeamTitle": "Our Team",
+    "timelineTitle": "Timeline of BuzzVerse",
+    "timelineDescription": "We've been working on BuzzVerse for the past 3 years. Here's a timeline of our science club.",
+    "heroDescription": "We are a passionate science club dedicated to advancing IoT technology and fostering innovation in our university community.",
+    "badges": {
+      "about": "About BuzzVerse",
+      "journey": "Our Journey",
+      "meetTeam": "Meet the Team"
+    },
+    "whoWeAre": {
+      "title": "Who We Are",
+      "description1": "The BuzzVerse Science Club is a team of information technology enthusiasts. The aim of the club is to influence real changes in the environment and to develop skills related to embedded systems, programming as well as the design and implementation of embedded devices.",
+      "description2": "We work with cutting-edge LoRa technology, creating innovative IoT solutions that bridge the gap between academic learning and real-world applications."
+    },
+    "teamDescription": "Our diverse team of passionate students and professionals working together to push the boundaries of IoT technology.",
+    "values": {
+      "mission": {
+        "title": "Our Mission",
+        "description": "To foster innovation in IoT technology and inspire the next generation of engineers through hands-on learning and collaborative projects."
+      },
+      "innovation": {
+        "title": "Innovation First",
+        "description": "We believe in pushing the boundaries of what's possible with cutting-edge LoRa technology and embedded systems."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Building a community of passionate students and industry professionals working together towards common goals."
+      },
+      "impact": {
+        "title": "Impact",
+        "description": "Creating projects that make a real difference in our local community and the broader technology landscape."
+      }
+    },
+    "timeline": {
+      "2022": {
+        "description": "Group of students decided to create a science club"
+      },
+      "2023": {
+        "description": "First successful LoRa communication project and team expansion"
+      },
+      "2024": {
+        "description": "BeeMonitor project launch and partnership with local companies",
+        "projects": "Club also launched innovative projects such as developing an automatic parking system and more."
+      }
+    }
+  },
+  "Common": {
+    "close": "Close",
+    "loadingProjects": "Loading projects...",
+    "loadingNews": "Loading news...",
+    "loadingMedia": "Loading media...",
+    "noImage": "No image available",
+    "fullContentPlaceholder": "Full article content will be available soon...",
+    "seeMoreMedia": "See more media",
+    "team": "BuzzVerse Team",
+    "gallery": "Gallery"
+  },
+  "Footer": {
+    "followUs": "Follow us",
+    "contact": "Contact",
+    "copyright": "BuzzVerse",
+    "madeWith": "Made with",
+    "byTeam": "by BuzzVerse Team",
+    "address": {
+      "city": "Zielona Góra",
+      "country": "Poland"
+    }
+  }
+}

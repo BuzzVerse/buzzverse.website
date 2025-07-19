@@ -1,0 +1,201 @@
+{
+  "Navigation": {
+    "home": "Strona główna",
+    "projects": "Projekty",
+    "news": "Aktualności",
+    "media": "Media",
+    "about": "O nas",
+    "allProjects": "Wszystkie projekty",
+    "recentProjects": "Najnowsze projekty:",
+    "recentNews": "Najnowsze aktualności:",
+    "recentMedia": "Najnowsze media:",
+    "aboutBuzzverse": "O BuzzVerse",
+    "ourTeam": "Nasz zespół",
+    "gallery": "Galeria"
+  },
+  "HomePage": {
+    "welcome": "Witamy w BuzzVerse",
+    "description": "Jesteśmy grupą studentów oddanych rozwijaniu się oraz miłości do nauki i współpracy na naszej uczelni.",
+    "hero": {
+      "title": "BuzzVerse",
+      "subtitle": "Centrum Innowacji Technologii IoT",
+      "description": "Dołącz do naszego koła naukowego i odkryj najnowocześniejszy świat komunikacji IoT z technologią LoRa"
+    },
+    "features": {
+      "title": "Czym się zajmujemy",
+      "subtitle": "Poznaj nasze obszary działania"
+    },
+    "aboutContent": {
+      "aboutUs": {
+        "title": "O nas",
+        "description": "Koło Naukowe BuzzVerse to zespół entuzjastów technologii informatycznych. Celem koła jest wywieranie realnych zmian w środowisku oraz rozwijanie umiejętności związanych z systemami wbudowanymi, programowaniem oraz projektowaniem i implementacją urządzeń wbudowanych."
+      },
+      "team": {
+        "title": "Zespół",
+        "description": "Jesteśmy dynamicznym i ambitnym zespołem składającym się ze studentów różnych kierunków. Współpracujemy ze specjalistami GlobalLogic. Menedżer, programista czy opiekun - Każdy członek naszego koła naukowego wnosi unikalne doświadczenie i zdobywa nowe umiejętności."
+      },
+      "projects": {
+        "title": "Projekty",
+        "description": "W ramach działalności koła realizujemy projekty, które pozwalają na rozwijanie praktycznych umiejętności. Dzięki wsparciu lokalnych firm i uczelni, nasze projekty mają realny wpływ na rozwój technologii w regionie zielonogórskim."
+      },
+      "beeMonitor": {
+        "title": "Bee Monitor",
+        "description": "Naszym najnowszym projektem jest Bee Monitor. Dzięki technologii LoRa umożliwiającej komunikację na duże odległości, możemy monitorować parametry takie jak temperatura czy wilgotność w danym miejscu. Zebrane dane są przesyłane na maszt, a następnie do bazy danych, gdzie finalnie są prezentowane na naszej stronie internetowej."
+      }
+    },
+    "beeMonitorProject": {
+      "title": "Projekt BuzzVerse",
+      "projectName": "BeeMonitor",
+      "description": "Sprawdź nasz kod źródłowy"
+    }
+  },
+  "ProjectsPage": {
+    "hero": {
+      "badge": "Centrum Innowacji",
+      "title": "Nasze Laboratorium",
+      "description": "Rewolucjonizujemy komunikację IoT dzięki najnowocześniejszej technologii LoRa"
+    },
+    "technology": {
+      "badge": "Główna Technologia",
+      "title": "Jakich technologii używają nasze projekty?",
+      "description": "Nasze koło naukowe rozwija najnowocześniejsze systemy wbudowane z naciskiem na komunikację między urządzeniami. Wybraliśmy technologię LoRa jako nasz główny protokół komunikacyjny ze względu na jej wyjątkowy zasięg i efektywność.",
+      "learnMore": "Dowiedz się więcej o LoRa"
+    },
+    "features": {
+      "badge": "Kluczowe cechy",
+      "title": "Dlaczego LoRa?",
+      "description": "Odkryj potężne funkcje, które sprawiają, że LoRa jest idealnym wyborem dla naszych projektów IoT",
+      "longRange": {
+        "title": "Duży zasięg",
+        "description": "Pokrycie kilku kilometrów w obszarach miejskich i do 15 km na terenach wiejskich"
+      },
+      "lowPower": {
+        "title": "Niskie zużycie energii",
+        "description": "Urządzenia mogą działać przez lata na jednym ładowaniu baterii"
+      },
+      "wideCoverage": {
+        "title": "Szerokie pokrycie",
+        "description": "Jedna brama może obsłużyć tysiące urządzeń końcowych"
+      },
+      "secure": {
+        "title": "Bezpieczne",
+        "description": "Wbudowane szyfrowanie i funkcje bezpieczeństwa"
+      },
+      "energyEfficient": {
+        "title": "Energooszczędne",
+        "description": "Zoptymalizowane dla urządzeń IoT zasilanych bateryjnie"
+      },
+      "costEffective": {
+        "title": "Opłacalne",
+        "description": "Niskie koszty infrastruktury i eksploatacji"
+      }
+    },
+    "featuredProjects": {
+      "badge": "Nasza praca",
+      "title": "Wybrane projekty",
+      "description": "Poznaj nasze innowacyjne projekty, które pokazują moc technologii LoRa",
+      "learnMore": "Dowiedz się więcej",
+      "comingSoon": "Wkrótce",
+      "developmentMessage": "Nasze ekscytujące projekty są obecnie w trakcie rozwoju"
+    },
+    "cta": {
+      "title": "Gotowy do innowacji z nami?",
+      "description": "Dołącz do naszego koła naukowego i stań się częścią następnej generacji innowatorów IoT",
+      "button": "Skontaktuj się"
+    },
+    "contactPopup": {
+      "title": "Napisz do nas śmiało!",
+      "description": "Skontaktuj się z nami, chętnie odpowiemy na wszystkie pytania.",
+      "sendEmail": "Wyślij email",
+      "close": "Zamknij"
+    },
+    "common": {
+      "loading": "Ładowanie projektów..."
+    }
+  },
+  "NewsPage": {
+    "title": "Najnowsze aktualności",
+    "description": "Bądź na bieżąco z najnowszymi wydarzeniami i ogłoszeniami z BuzzVerse.",
+    "readMore": "Czytaj więcej",
+    "loading": "Ładowanie aktualności...",
+    "noNews": "Brak aktualności",
+    "noNewsMessage": "W tej chwili nie ma dostępnych artykułów z aktualnościami."
+  },
+  "MediaPage": {
+    "title": "Galeria mediów",
+    "description": "Poznaj naszą kolekcję wizualną przedstawiającą działania i osiągnięcia BuzzVerse.",
+    "loading": "Ładowanie mediów...",
+    "noMedia": "Brak mediów",
+    "noMediaMessage": "W tej chwili nie ma dostępnych elementów multimedialnych."
+  },
+  "AboutPage": {
+    "title": "O BuzzVerse",
+    "ourTeamTitle": "Nasz zespół",
+    "timelineTitle": "Historia BuzzVerse",
+    "timelineDescription": "Pracujemy nad BuzzVerse od 3 lat. Oto historia naszego koła naukowego.",
+    "heroDescription": "Jesteśmy pasjonatami koła naukowego oddanym rozwojowi technologii IoT i wspieraniu innowacji w naszej społeczności uniwersyteckiej.",
+    "badges": {
+      "about": "O BuzzVerse",
+      "journey": "Nasza Podróż",
+      "meetTeam": "Poznaj Zespół"
+    },
+    "whoWeAre": {
+      "title": "Kim jesteśmy",
+      "description1": "Koło Naukowe BuzzVerse to zespół entuzjastów technologii informatycznych. Celem koła jest wywieranie realnych zmian w środowisku oraz rozwijanie umiejętności związanych z systemami wbudowanymi, programowaniem oraz projektowaniem i implementacją urządzeń wbudowanych.",
+      "description2": "Pracujemy z najnowocześniejszą technologią LoRa, tworząc innowacyjne rozwiązania IoT, które łączą naukę akademicką z zastosowaniami w rzeczywistym świecie."
+    },
+    "teamDescription": "Nasz różnorodny zespół pasjonatów studentów i profesjonalistów pracujących razem nad przesuwaniem granic technologii IoT.",
+    "values": {
+      "mission": {
+        "title": "Nasza Misja",
+        "description": "Wspieranie innowacji w technologii IoT i inspirowanie następnego pokolenia inżynierów poprzez praktyczną naukę i projekty współpracy."
+      },
+      "innovation": {
+        "title": "Innowacje Przede Wszystkim",
+        "description": "Wierzymy w przesuwanie granic tego, co możliwe dzięki najnowocześniejszej technologii LoRa i systemom wbudowanym."
+      },
+      "collaboration": {
+        "title": "Współpraca",
+        "description": "Budowanie społeczności pasjonatów studentów i profesjonalistów z branży pracujących razem nad wspólnymi celami."
+      },
+      "impact": {
+        "title": "Wpływ",
+        "description": "Tworzenie projektów, które mają rzeczywisty wpływ na naszą lokalną społeczność i szerszy krajobraz technologiczny."
+      }
+    },
+    "timeline": {
+      "2022": {
+        "description": "Grupa studentów postanowiła utworzyć koło naukowe"
+      },
+      "2023": {
+        "description": "Pierwszy udany projekt komunikacji LoRa i rozszerzenie zespołu"
+      },
+      "2024": {
+        "description": "Uruchomienie projektu BeeMonitor i partnerstwo z lokalnymi firmami",
+        "projects": "Klub uruchomił również innowacyjne projekty, takie jak opracowanie automatycznego systemu parkingowego i inne."
+      }
+    }
+  },
+  "Common": {
+    "close": "Zamknij",
+    "loadingProjects": "Ładowanie projektów...",
+    "loadingNews": "Ładowanie aktualności...",
+    "loadingMedia": "Ładowanie mediów...",
+    "noImage": "Brak dostępnego obrazu",
+    "fullContentPlaceholder": "Pełna treść artykułu będzie dostępna wkrótce...",
+    "seeMoreMedia": "Zobacz więcej mediów",
+    "team": "Zespół BuzzVerse",
+    "gallery": "Galeria"
+  },
+  "Footer": {
+    "followUs": "Śledź nas",
+    "contact": "Kontakt",
+    "copyright": "BuzzVerse",
+    "madeWith": "Stworzone z",
+    "byTeam": "przez zespół BuzzVerse",
+    "address": {
+      "city": "Zielona Góra",
+      "country": "Polska"
+    }
+  }
+}

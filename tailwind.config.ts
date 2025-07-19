@@ -25,10 +25,10 @@ const config = {
     },
     extend: {
       colors: {
-        Buzzprimary: "#FF8E2B",
-        Buzzsecondary: "#2E77AE",
-        Buzztertiary: "#0D2137",
-        Buzzquaternary: "#E0EAF5",
+        buzzprimary: "#FF8E2B",
+        buzzsecondary: "#2E77AE",
+        buzztertiary: "#0D2137",
+        buzzquaternary: "#E0EAF5",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
