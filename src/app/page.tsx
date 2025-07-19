@@ -8,7 +8,7 @@ import {AboutTeamStory} from "@/app/(home)/components/about-team-story";
 
 export default function Home() {
     return (
-        <main className="flex flex-col items-center justify-between bg-neutral-950 w-full">
+        <main className="flex flex-col items-center justify-between bg-neutral-950 w-full min-h-screen">
             <TrackingBeam>         
                 <div className="h-screen w-full items-center justify-between font-mono text-sm lg:flex ">
                     <Sparkles/>

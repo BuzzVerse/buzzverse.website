@@ -5,7 +5,7 @@ import { Github, Instagram, Link, Linkedin, Mail, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
-    <Card className="bg-black text-white rounded-none shadow-none z-20">
+    <Card className="bg-black text-white rounded-none shadow-none z-50 relative">
       <CardContent className="p-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
