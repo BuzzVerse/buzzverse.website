@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import ContentModal from '@/components/ui/content-modal';
+import { useTranslations } from 'next-intl';
 
 interface NewsItem {
   id: number;
@@ -169,6 +170,7 @@ const formatRelativeTime = (dateString: string) => {
 };
 
 const NewsPage = () => {
+  const t = useTranslations('NewsPage');
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
@@ -212,7 +214,7 @@ const NewsPage = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-buzzprimary mx-auto"></div>
-            <p className="mt-4 text-muted-foreground">Loading news...</p>
+            <p className="mt-4 text-muted-foreground">{t('loading')}</p>
           </div>
         </div>
       </div>
@@ -225,10 +227,10 @@ const NewsPage = () => {
         {/* Header */}
         <div className="text-center py-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Latest News
+            {t('title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Stay updated with the latest developments, achievements, and events from BuzzVerse.
+            {t('description')}
           </p>
         </div>
 
@@ -238,9 +240,9 @@ const NewsPage = () => {
             <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
               <Clock className="w-12 h-12 text-gray-400" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">No news found</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('noNews')}</h3>
             <p className="text-muted-foreground">
-              No news articles are available at the moment. Check back soon!
+              {t('noNewsMessage')}
             </p>
           </div>
         ) : (
@@ -301,7 +303,7 @@ const NewsPage = () => {
                         onClick={() => handleNewsClick(item)}
                         className="inline-flex items-center gap-2 text-buzzprimary hover:text-buzzprimary/80 font-medium transition-colors group"
                       >
-                        Read more
+                        {t('readMore')}
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
 

@@ -1,3 +1,7 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.js');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
@@ -6,17 +10,24 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'avatars.githubusercontent.com',
+                port: '',
+                pathname: '/**',
             },
             {
                 protocol: 'https',
                 hostname: 'assets.aceternity.com',
+                port: '',
+                pathname: '/**',
             },
             {
                 protocol: 'https',
-                hostname: 'strapi.buzzverse.dev', // Dodana domena
+                hostname: 'strapi.buzzverse.dev',
+                port: '',
+                pathname: '/**',
             },
         ],
+        unoptimized: false,
     },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, ExternalLink, Play, Image as ImageIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface MediaItem {
   id: number;
@@ -134,6 +135,8 @@ const formatDate = (dateString: string) => {
 };
 
 const MediaPage = () => {
+  const t = useTranslations('MediaPage');
+  const tCommon = useTranslations('Common');
   const [mediaItems, setMediaItems] = useState<MediaItem[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -154,7 +157,7 @@ const MediaPage = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-buzzprimary mx-auto"></div>
-            <p className="mt-4 text-muted-foreground">Loading media...</p>
+            <p className="mt-4 text-muted-foreground">{t('loading')}</p>
           </div>
         </div>
       </div>
@@ -167,10 +170,10 @@ const MediaPage = () => {
         {/* Header */}
         <div className="text-center py-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Media Gallery
+            {t('title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Explore our visual collection showcasing BuzzVerse activities and achievements.
+            {t('description')}
           </p>
         </div>
 
@@ -180,9 +183,9 @@ const MediaPage = () => {
             <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
               <ImageIcon className="w-12 h-12 text-gray-400" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">No media found</h3>
+            <h3 className="text-xl font-semibold mb-2">{t('noMedia')}</h3>
             <p className="text-muted-foreground">
-              No media items are available at the moment.
+              {t('noMediaMessage')}
             </p>
           </div>
         ) : (
@@ -227,7 +230,7 @@ const MediaPage = () => {
                     <div className="text-center">
                       <ImageIcon className="w-20 h-20 text-muted-foreground/40 mx-auto mb-4" />
                       <h3 className="font-medium text-lg mb-2">{item.Title}</h3>
-                      <p className="text-sm text-muted-foreground">No image available</p>
+                      <p className="text-sm text-muted-foreground">{tCommon('noImage')}</p>
                     </div>
                   </div>
                 )}

@@ -5,6 +5,7 @@ import { Wifi, Zap, Globe, Shield, Battery, Cpu, ArrowRight, ExternalLink } from
 import Image from "next/image";
 import Link from "next/link";
 import ProjectModal from "@/components/ui/project-modal";
+import { useTranslations } from 'next-intl';
 
 interface Project {
   id: number;
@@ -91,44 +92,46 @@ const fetchProjectDetails = async (documentId: string): Promise<Project | null> 
   }
 };
 
-const features = [
-  {
-    icon: Wifi,
-    title: "Long Range",
-    description: "Cover several kilometers in urban areas and up to 15 km in rural settings"
-  },
-  {
-    icon: Zap,
-    title: "Low Power",
-    description: "Devices can operate for years on a single battery charge"
-  },
-  {
-    icon: Globe,
-    title: "Wide Coverage",
-    description: "A single gateway can cover thousands of end-devices"
-  },
-  {
-    icon: Shield,
-    title: "Secure",
-    description: "Built-in encryption and security features"
-  },
-  {
-    icon: Battery,
-    title: "Energy Efficient",
-    description: "Optimized for battery-powered IoT devices"
-  },
-  {
-    icon: Cpu,
-    title: "Cost Effective",
-    description: "Low infrastructure and operational costs"
-  }
-];
-
 const page = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const t = useTranslations('ProjectsPage');
+
+  // Tłumaczenia dla features
+  const features = [
+    {
+      icon: Wifi,
+      title: t('features.longRange.title'),
+      description: t('features.longRange.description')
+    },
+    {
+      icon: Zap,
+      title: t('features.lowPower.title'),
+      description: t('features.lowPower.description')
+    },
+    {
+      icon: Globe,
+      title: t('features.wideCoverage.title'),
+      description: t('features.wideCoverage.description')
+    },
+    {
+      icon: Shield,
+      title: t('features.secure.title'),
+      description: t('features.secure.description')
+    },
+    {
+      icon: Battery,
+      title: t('features.energyEfficient.title'),
+      description: t('features.energyEfficient.description')
+    },
+    {
+      icon: Cpu,
+      title: t('features.costEffective.title'),
+      description: t('features.costEffective.description')
+    }
+  ];
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -165,7 +168,7 @@ const page = () => {
       <div className="min-h-screen bg-neutral-950 pt-20 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-4"></div>
-          <p className="text-neutral-400">Loading projects...</p>
+          <p className="text-neutral-400">{t('common.loading')}</p>
         </div>
       </div>
     );
@@ -178,14 +181,13 @@ const page = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="mb-4 inline-flex items-center rounded-full bg-neutral-800 text-neutral-300 border border-neutral-700 px-3 py-1 text-sm font-semibold">
-              Innovation Hub
+              {t('hero.badge')}
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-              Our Workshop
+              {t('hero.title')}
             </h1>
             <p className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-              Revolutionizing IoT Communication with cutting-edge{" "}
-              <span className="text-yellow-400 font-semibold">LoRa Technology</span>
+              {t('hero.description')}
             </p>
           </div>
         </div>
@@ -197,19 +199,16 @@ const page = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <div>
               <div className="mb-4 inline-flex items-center rounded-full bg-neutral-800 text-neutral-300 border border-neutral-700 px-3 py-1 text-sm font-semibold">
-                Technology Focus
+                {t('technology.badge')}
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                What technology our{" "}
-                <span className="text-yellow-400">projects</span> use?
+                {t('technology.title')}
               </h2>
               <p className="text-lg text-neutral-300 leading-relaxed mb-6">
-                Our science club is developing cutting-edge embedded systems with a focus on 
-                device-to-device communication. We've chosen LoRa technology as our primary 
-                communication protocol for its exceptional range and efficiency.
+                {t('technology.description')}
               </p>
               <div className="flex items-center gap-2 text-yellow-400">
-                <span className="font-semibold">Learn more about LoRa</span>
+                <span className="font-semibold">{t('technology.learnMore')}</span>
                 <ArrowRight className="w-4 h-4" />
               </div>
             </div>
@@ -235,13 +234,13 @@ const page = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="mb-4 inline-flex items-center rounded-full bg-neutral-800 text-neutral-300 border border-neutral-700 px-3 py-1 text-sm font-semibold">
-              Key Features
+              {t('features.badge')}
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Why <span className="text-yellow-400">LoRa</span>?
+              {t('features.title')}
             </h2>
             <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
-              Discover the powerful features that make LoRa the perfect choice for our IoT projects
+              {t('features.description')}
             </p>
           </div>
 
@@ -272,13 +271,13 @@ const page = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="mb-4 inline-flex items-center rounded-full bg-neutral-800 text-neutral-300 border border-neutral-700 px-3 py-1 text-sm font-semibold">
-              Our Work
+              {t('featuredProjects.badge')}
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Featured <span className="text-yellow-400">Projects</span>
+              {t('featuredProjects.title')}
             </h2>
             <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
-              Explore our innovative projects that showcase the power of LoRa technology
+              {t('featuredProjects.description')}
             </p>
           </div>
 
@@ -309,7 +308,7 @@ const page = () => {
                         {project.description}
                       </p>
                       <div className="flex items-center gap-2 text-yellow-400 font-medium">
-                        <span>Learn more</span>
+                        <span>{t('featuredProjects.learnMore')}</span>
                         <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </CardContent>
@@ -320,8 +319,8 @@ const page = () => {
           ) : (
             <div className="text-center py-20">
               <div className="text-6xl mb-4">🚧</div>
-              <h3 className="text-2xl font-bold text-white mb-2">Coming Soon</h3>
-              <p className="text-neutral-400">Our exciting projects are currently in development</p>
+              <h3 className="text-2xl font-bold text-white mb-2">{t('featuredProjects.comingSoon')}</h3>
+              <p className="text-neutral-400">{t('featuredProjects.developmentMessage')}</p>
             </div>
           )}
         </div>
@@ -332,16 +331,16 @@ const page = () => {
         <div className="container mx-auto px-4">
           <div className="text-center bg-neutral-900 rounded-3xl p-12 border border-neutral-800">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to innovate with us?
+              {t('cta.title')}
             </h2>
             <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto">
-              Join our science club and be part of the next generation of IoT innovators
+              {t('cta.description')}
             </p>
             <Link 
               href="/contact" 
               className="inline-flex items-center gap-2 bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-colors"
             >
-              Get in Touch
+              {t('cta.button')}
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

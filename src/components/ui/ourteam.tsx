@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useTranslations } from 'next-intl';
 
 interface TeamMember {
   id: number;
@@ -66,6 +67,7 @@ const formatRoles = (roles: string[]) => {
 };
 
 const OurTeam: React.FC<OurTeamProps> = ({ teamMembers }) => {
+  const t = useTranslations('AboutPage');
   console.log("Team Members:", teamMembers);
 
   if (!teamMembers || teamMembers.length === 0) {
@@ -74,7 +76,7 @@ const OurTeam: React.FC<OurTeamProps> = ({ teamMembers }) => {
 
   return (
     <div id="team-section" className="container mx-auto py-12">
-      <h2 className="text-3xl font-bold text-center mb-8">Our Team</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">{t('ourTeamTitle')}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {teamMembers.map((member) => (
           <Card key={member.id} className="overflow-hidden">
