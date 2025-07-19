@@ -13,12 +13,35 @@ interface NewsItem {
   createdAt?: string;
   author?: string;
   photo?: {
+    id?: number;
+    documentId?: string;
+    name?: string;
     url: string;
+    width?: number;
+    height?: number;
     formats?: {
-      medium?: { url: string };
-      large?: { url: string };
+      thumbnail?: {
+        url: string;
+        width?: number;
+        height?: number;
+      };
+      small?: {
+        url: string;
+        width?: number;
+        height?: number;
+      };
+      medium?: { 
+        url: string;
+        width?: number;
+        height?: number;
+      };
+      large?: { 
+        url: string;
+        width?: number;
+        height?: number;
+      };
     };
-  };
+  } | null;
 }
 
 interface MediaItem {

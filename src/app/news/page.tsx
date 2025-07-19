@@ -4,16 +4,19 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
+import ContentModal from '@/components/ui/content-modal';
 
 interface NewsItem {
   id: number;
   documentId: string;
   Title: string;
   description?: string;
+  content?: string; // Pełna treść artykułu
   date: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  author?: string;
   photo?: {
     id: number;
     documentId: string;
@@ -33,6 +36,11 @@ interface NewsItem {
         height: number;
       };
       medium?: {
+        url: string;
+        width: number;
+        height: number;
+      };
+      large?: {
         url: string;
         width: number;
         height: number;
@@ -102,6 +110,33 @@ const extractImageUrl = (news: NewsItem) => {
   return `https://strapi.buzzverse.dev${imageUrl}`;
 };
 
+// Funkcja do pobierania szczegółów konkretnego artykułu
+const fetchNewsDetails = async (documentId: string): Promise<NewsItem | null> => {
+  try {
+    const url = `https://strapi.buzzverse.dev/api/newses/${documentId}?populate=photo`;
+    console.log('🔍 Fetching news details from:', url);
+    
+    const res = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (!res.ok) {
+      console.error('❌ Failed to fetch news details:', res.status);
+      return null;
+    }
+    
+    const data = await res.json();
+    console.log('📊 News details:', data);
+    
+    return data.data || null;
+  } catch (error) {
+    console.error("💥 Error fetching news details:", error);
+    return null;
+  }
+};
+
 const formatDate = (dateString: string) => {
   try {
     const date = new Date(dateString);
@@ -136,6 +171,8 @@ const formatRelativeTime = (dateString: string) => {
 const NewsPage = () => {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const loadNews = async () => {
@@ -149,6 +186,25 @@ const NewsPage = () => {
 
     loadNews();
   }, []);
+
+  const handleNewsClick = async (news: NewsItem) => {
+    // Najpierw pokaż podstawowe informacje
+    setSelectedNews(news);
+    setIsModalOpen(true);
+    
+    // Następnie pobierz szczegółowe informacje jeśli nie ma content
+    if (!news.content) {
+      const detailedNews = await fetchNewsDetails(news.documentId);
+      if (detailedNews) {
+        setSelectedNews(detailedNews);
+      }
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedNews(null);
+  };
 
   if (loading) {
     return (
@@ -241,7 +297,10 @@ const NewsPage = () => {
                       )}
 
                       {/* Read More Button */}
-                      <button className="inline-flex items-center gap-2 text-buzzprimary hover:text-buzzprimary/80 font-medium transition-colors group">
+                      <button 
+                        onClick={() => handleNewsClick(item)}
+                        className="inline-flex items-center gap-2 text-buzzprimary hover:text-buzzprimary/80 font-medium transition-colors group"
+                      >
                         Read more
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
@@ -263,6 +322,14 @@ const NewsPage = () => {
             })}
           </div>
         )}
+
+        {/* News Modal */}
+        <ContentModal
+          item={selectedNews}
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          type="news"
+        />
       </div>
     </div>
   );

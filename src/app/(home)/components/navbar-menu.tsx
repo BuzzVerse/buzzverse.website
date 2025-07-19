@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import ProjectModal from "@/components/ui/project-modal";
+import ContentModal from "@/components/ui/content-modal";
 
 interface Project {
   id: number;
@@ -31,14 +32,40 @@ interface NewsItem {
   documentId: string;
   Title: string;
   description?: string;
+  content?: string;
   date: string;
+  createdAt?: string;
+  author?: string;
   photo?: {
+    id?: number;
+    documentId?: string;
+    name?: string;
     url: string;
+    width?: number;
+    height?: number;
     formats?: {
-      thumbnail?: { url: string };
-      small?: { url: string };
+      thumbnail?: {
+        url: string;
+        width?: number;
+        height?: number;
+      };
+      small?: {
+        url: string;
+        width?: number;
+        height?: number;
+      };
+      medium?: { 
+        url: string;
+        width?: number;
+        height?: number;
+      };
+      large?: { 
+        url: string;
+        width?: number;
+        height?: number;
+      };
     };
-  };
+  } | null;
 }
 
 interface MediaItem {
@@ -73,7 +100,9 @@ export function Navbar({ className }: { className?: string }) {
   const [recentNews, setRecentNews] = useState<NewsItem[]>([]);
   const [recentMedia, setRecentMedia] = useState<MediaItem[]>([]);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
+  const [isNewsModalOpen, setIsNewsModalOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -154,13 +183,24 @@ export function Navbar({ className }: { className?: string }) {
 
   const handleProjectClick = async (project: Project) => {
     setSelectedProject(project);
-    setIsModalOpen(true);
+    setIsProjectModalOpen(true);
     setActive(null); // Close navbar menu
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const handleNewsClick = async (news: NewsItem) => {
+    setSelectedNews(news);
+    setIsNewsModalOpen(true);
+    setActive(null); // Close navbar menu
+  };
+
+  const handleCloseProjectModal = () => {
+    setIsProjectModalOpen(false);
     setSelectedProject(null);
+  };
+
+  const handleCloseNewsModal = () => {
+    setIsNewsModalOpen(false);
+    setSelectedNews(null);
   };
 
   return (
@@ -220,7 +260,11 @@ export function Navbar({ className }: { className?: string }) {
                   <p className="text-xs text-neutral-400 mb-2">Recent News:</p>
                   <div className="grid gap-2">
                     {recentNews.map((news) => (
-                      <div key={news.id} className="flex items-center space-x-3 p-2 rounded hover:bg-neutral-800 transition-colors">
+                      <div 
+                        key={news.id} 
+                        className="flex items-center space-x-3 p-2 rounded hover:bg-neutral-800 transition-colors cursor-pointer"
+                        onClick={() => handleNewsClick(news)}
+                      >
                         <div className="w-8 h-8 rounded overflow-hidden bg-neutral-700 flex-shrink-0">
                           {extractNewsImageUrl(news) ? (
                             <img
@@ -235,9 +279,9 @@ export function Navbar({ className }: { className?: string }) {
                           )}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <HoveredLink href={`/news#${news.documentId}`}>
-                            <span className="text-xs font-medium truncate">{news.Title}</span>
-                          </HoveredLink>
+                          <span className="text-xs font-medium truncate hover:text-yellow-400 transition-colors">
+                            {news.Title}
+                          </span>
                           <p className="text-xs text-neutral-500">{formatDate(news.date)}</p>
                         </div>
                       </div>
@@ -300,8 +344,16 @@ export function Navbar({ className }: { className?: string }) {
       {/* Project Modal */}
       <ProjectModal
         project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
+        isOpen={isProjectModalOpen}
+        onClose={handleCloseProjectModal}
+      />
+
+      {/* News Modal */}
+      <ContentModal
+        item={selectedNews}
+        isOpen={isNewsModalOpen}
+        onClose={handleCloseNewsModal}
+        type="news"
       />
     </div>
   );

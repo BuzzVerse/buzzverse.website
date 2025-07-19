@@ -130,12 +130,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             </div>
 
             {/* Full Content */}
-            {project.content && (
+            {project.content ? (
               <div className="prose prose-invert max-w-none">
                 <div 
                   className="text-neutral-200 leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: project.content.replace(/\n/g, '<br/>') }}
                 />
+              </div>
+            ) : (
+              <div className="bg-neutral-800/50 rounded-lg p-6 text-center">
+                <p className="text-neutral-400">
+                  Pełna treść artykułu będzie dostępna wkrótce...
+                </p>
               </div>
             )}
 
@@ -146,10 +152,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                 className="px-6 py-3 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition-colors"
               >
                 Zamknij
-              </button>
-              <button className="px-6 py-3 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition-colors flex items-center gap-2">
-                <span>Więcej informacji</span>
-                <ExternalLink className="w-4 h-4" />
               </button>
             </div>
           </div>
