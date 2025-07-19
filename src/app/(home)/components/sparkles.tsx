@@ -4,7 +4,7 @@ import {SparklesCore} from "@/components/ui/sparkles-core";
 
 export function Sparkles() {
     return (
-        <div className=" w-full h-screen bg-neutral-950 flex flex-col items-center justify-center overflow-hidden rounded-md">
+        <div className="w-full h-auto md:h-screen min-h-[80vh] md:min-h-screen bg-neutral-950 flex flex-col items-center justify-center overflow-hidden rounded-md py-8 md:py-0">
             <h1 className="md:text-7xl text-5xl lg:text-9xl font-bold text-center text-white relative z-20">
                 BuzzVerse
             </h1>
