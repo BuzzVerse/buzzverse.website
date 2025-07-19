@@ -27,7 +27,7 @@ interface MediaItem {
 const fetchMediaItems = async (): Promise<MediaItem[]> => {
   try {
     // Spróbuj najpierw z populate dla wszystkich pól
-    let url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/medias?populate=*`;
+    let url = `https://strapi.buzzverse.dev/api/medias?populate=*`;
     console.log('🔍 Fetching media from:', url);
     
     let res = await fetch(url, {
@@ -43,7 +43,7 @@ const fetchMediaItems = async (): Promise<MediaItem[]> => {
     // Jeśli populate=* nie działa, spróbuj bez populate
     if (!res.ok) {
       console.log('🔄 Trying without populate...');
-      url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/medias`;
+      url = `https://strapi.buzzverse.dev/api/medias`;
       res = await fetch(url, {
         method: 'GET',
         headers: {
@@ -91,18 +91,18 @@ const extractImageUrl = (media: MediaItem) => {
     if (imageData) {
       // Jeśli to obiekt z url
       if (imageData.url) {
-        return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageData.url}`;
+        return `https://strapi.buzzverse.dev${imageData.url}`;
       }
       // Jeśli to obiekt z formats
       if (imageData.formats) {
         const format = imageData.formats.medium || imageData.formats.small || imageData.formats.thumbnail;
         if (format?.url) {
-          return `${process.env.NEXT_PUBLIC_STRAPI_URL}${format.url}`;
+          return `https://strapi.buzzverse.dev${format.url}`;
         }
       }
       // Jeśli to array (multiple images)
       if (Array.isArray(imageData) && imageData.length > 0 && imageData[0].url) {
-        return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageData[0].url}`;
+        return `https://strapi.buzzverse.dev${imageData[0].url}`;
       }
     }
   }
@@ -112,7 +112,7 @@ const extractImageUrl = (media: MediaItem) => {
     if (value && typeof value === 'object') {
       if (value.url && typeof value.url === 'string' && value.url.includes('/uploads/')) {
         console.log(`🖼️ Found image in field "${key}":`, value.url);
-        return `${process.env.NEXT_PUBLIC_STRAPI_URL}${value.url}`;
+        return `https://strapi.buzzverse.dev${value.url}`;
       }
     }
   }

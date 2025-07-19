@@ -19,7 +19,7 @@ interface ProjectsProps {
 }
 
 const extractImageUrl = (project: Project) => {
-  return project.photo?.url ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${project.photo.url}` : '';
+  return project.photo?.url ? `https://strapi.buzzverse.dev${project.photo.url}` : '';
 };
 
 const loraProjects: React.FC<ProjectsProps> = ({ projects }) => {

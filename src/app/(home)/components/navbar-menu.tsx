@@ -71,21 +71,21 @@ export function Navbar({ className }: { className?: string }) {
     const fetchRecentData = async () => {
       try {
         // Fetch recent projects
-        const projectsResponse = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=photo&pagination[limit]=3&sort=createdAt:desc`);
+        const projectsResponse = await fetch(`https://strapi.buzzverse.dev/api/projects?populate=photo&pagination[limit]=3&sort=createdAt:desc`);
         if (projectsResponse.ok) {
           const projectsData = await projectsResponse.json();
           setRecentProjects(projectsData.data || []);
         }
 
         // Fetch recent news
-        const newsResponse = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/newses?populate=photo&pagination[limit]=3&sort=date:desc`);
+        const newsResponse = await fetch(`https://strapi.buzzverse.dev/api/newses?populate=photo&pagination[limit]=3&sort=date:desc`);
         if (newsResponse.ok) {
           const newsData = await newsResponse.json();
           setRecentNews(newsData.data || []);
         }
 
         // Fetch recent media
-        const mediaResponse = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/medias?populate=photo&pagination[limit]=3&sort=Date:desc`);
+        const mediaResponse = await fetch(`https://strapi.buzzverse.dev/api/medias?populate=photo&pagination[limit]=3&sort=Date:desc`);
         if (mediaResponse.ok) {
           const mediaData = await mediaResponse.json();
           setRecentMedia(mediaData.data || []);
@@ -101,19 +101,19 @@ export function Navbar({ className }: { className?: string }) {
   const extractImageUrl = (project: Project) => {
     if (!project.photo?.url) return '';
     const imageUrl = project.photo.formats?.small?.url || project.photo.formats?.thumbnail?.url || project.photo.url;
-    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+    return `https://strapi.buzzverse.dev${imageUrl}`;
   };
 
   const extractNewsImageUrl = (news: NewsItem) => {
     if (!news.photo?.url) return '';
     const imageUrl = news.photo.formats?.small?.url || news.photo.formats?.thumbnail?.url || news.photo.url;
-    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+    return `https://strapi.buzzverse.dev${imageUrl}`;
   };
 
   const extractMediaImageUrl = (media: MediaItem) => {
     if (!media.photo?.url) return '';
     const imageUrl = media.photo.formats?.small?.url || media.photo.formats?.thumbnail?.url || media.photo.url;
-    return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+    return `https://strapi.buzzverse.dev${imageUrl}`;
   };
 
   const formatDate = (dateString: string) => {

@@ -39,7 +39,7 @@ const extractImageUrl = (member: TeamMember) => {
   
   // Użyj thumbnail jeśli dostępny, w przeciwnym razie oryginalny obraz
   const imageUrl = member.photo.formats?.thumbnail?.url || member.photo.url;
-  return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+  return `https://strapi.buzzverse.dev${imageUrl}`;
 };
 
 // Funkcja pomocnicza do wyodrębnienia roli członka zespołu

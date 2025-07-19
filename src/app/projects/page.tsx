@@ -16,7 +16,7 @@ interface Project {
 
 const fetchProjects = async (): Promise<Project[]> => {
   try {
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=photo`;
+    const url = `https://strapi.buzzverse.dev/api/projects?populate=photo`;
     console.log('🔍 Fetching from:', url);
     
     const res = await fetch(url, {
@@ -207,7 +207,7 @@ const page = async () => {
                     {project.photo?.url && (
                       <div className="relative h-48 overflow-hidden">
                         <Image
-                          src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${project.photo.url}`}
+                          src={`https://strapi.buzzverse.dev${project.photo.url}`}
                           alt={project.name}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-300"

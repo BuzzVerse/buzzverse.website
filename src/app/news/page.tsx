@@ -43,9 +43,9 @@ interface NewsItem {
 
 const fetchNewsItems = async (): Promise<NewsItem[]> => {
   try {
-    console.log('Fetching news from:', `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/newses?populate=photo`);
+    console.log('Fetching news from:', `https://strapi.buzzverse.dev/api/newses?populate=photo`);
     
-    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/newses?populate=photo`, {
+    const res = await fetch(`https://strapi.buzzverse.dev/api/newses?populate=photo`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ const fetchNewsItems = async (): Promise<NewsItem[]> => {
         console.error('Bad request - photo field might not exist, trying without populate...');
         
         // Fallback - try without populate
-        const basicRes = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/newses`, {
+        const basicRes = await fetch(`https://strapi.buzzverse.dev/api/newses`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ const extractImageUrl = (news: NewsItem) => {
   
   // Użyj small/thumbnail dla news - mniejsze obrazy
   const imageUrl = news.photo.formats?.small?.url || news.photo.formats?.thumbnail?.url || news.photo.url;
-  return `${process.env.NEXT_PUBLIC_STRAPI_URL}${imageUrl}`;
+  return `https://strapi.buzzverse.dev${imageUrl}`;
 };
 
 const formatDate = (dateString: string) => {

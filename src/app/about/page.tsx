@@ -31,9 +31,9 @@ interface TeamMember {
 
 const fetchTeamMembers = async (): Promise<TeamMember[]> => {
   try {
-    console.log('Fetching team members from:', `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/members?populate=photo`);
+    console.log('Fetching team members from:', `https://strapi.buzzverse.dev/api/members?populate=photo`);
     
-    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/members?populate=photo`, {
+    const res = await fetch(`https://strapi.buzzverse.dev/api/members?populate=photo`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
