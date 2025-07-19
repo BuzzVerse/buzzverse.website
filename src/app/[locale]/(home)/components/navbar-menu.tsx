@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import ProjectModal from "@/components/ui/project-modal";
 import ContentModal from "@/components/ui/content-modal";
 import { useTranslations } from 'next-intl';
-import { Link as IntlLink } from '@/i18n/routing';
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 
 interface Project {
@@ -212,7 +211,7 @@ export function Navbar({ className }: { className?: string }) {
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 hidden md:block", className)}
     >
       <Menu setActive={setActive}>
-        <IntlLink href="/">{t('home')}</IntlLink>
+        <Link href="/">{t('home')}</Link>
         <MenuItem setActive={setActive} active={active} item={t('projects')}>
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/projects">{t('allProjects')}</HoveredLink>

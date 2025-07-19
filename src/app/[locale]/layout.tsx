@@ -7,7 +7,6 @@ import { CustomSidebarMenu } from "./(home)/components/custom-sidebar-menu";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+  return [{ locale: 'en' }, { locale: 'pl' }];
 }
 
 export default async function LocaleLayout({
@@ -27,7 +26,7 @@ export default async function LocaleLayout({
   params: {locale: string};
 }) {
   // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as any)) {
+  if (!['en', 'pl'].includes(locale)) {
     notFound();
   }
 

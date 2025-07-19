@@ -1,23 +1,23 @@
-import { NextRequest } from 'next/server';
-import createIntlMiddleware from 'next-intl/middleware';
-import { routing } from './i18n/routing';
+import { NextRequest, NextResponse } from 'next/server';
 
-export default function middleware(request: NextRequest) {
-  return createIntlMiddleware(routing)(request);
+export function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+  
+  // Check if there is any supported locale in the pathname
+  const pathnameIsMissingLocale = ['/en', '/pl'].every(
+    (locale) => !pathname.startsWith(`${locale}/`) && pathname !== locale
+  );
+
+  // Redirect if there is no locale
+  if (pathnameIsMissingLocale) {
+    const locale = 'en'; // Default locale
+    return NextResponse.redirect(
+      new URL(`/${locale}${pathname}`, request.url)
+    );
+  }
 }
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: [
-    // Enable a redirect to a matching locale at the root
-    '/',
-
-    // Set a cookie to remember the previous locale for
-    // all requests that have a locale prefix
-    '/(pl|en)/:path*',
-
-    // Enable redirects that add missing locales
-    // (e.g. `/pathnames` -> `/en/pathnames`)
-    '/((?!_next|_vercel|.*\\..*).*)'
-  ]
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 };
