@@ -14,6 +14,8 @@
     "gallery": "Gallery"
   },
   "HomePage": {
+    "welcome": "Welcome to BuzzVerse",
+    "description": "We are a group of students dedicated to fostering a love for science and collaboration within our university.",
     "hero": {
       "title": "BuzzVerse",
       "subtitle": "Innovation Hub for IoT Technology",
@@ -100,6 +102,12 @@
       "title": "Ready to innovate with us?",
       "description": "Join our science club and be part of the next generation of IoT innovators",
       "button": "Get in Touch"
+    },
+    "contactPopup": {
+      "title": "Feel free to write to us!",
+      "description": "Contact us, we'll be happy to answer all your questions.",
+      "sendEmail": "Send email",
+      "close": "Close"
     }
   },
   "NewsPage": {
@@ -130,7 +138,8 @@
         "description": "First successful LoRa communication project and team expansion"
       },
       "2024": {
-        "description": "BeeMonitor project launch and partnership with local companies"
+        "description": "BeeMonitor project launch and partnership with local companies",
+        "projects": "Club also launched innovative projects such as developing an automatic parking system and more."
       }
     }
   },

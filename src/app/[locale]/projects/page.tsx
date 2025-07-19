@@ -97,6 +97,7 @@ const page = () => {
   const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const t = useTranslations('ProjectsPage');
 
   // Tłumaczenia dla features
@@ -336,13 +337,13 @@ const page = () => {
             <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto">
               {t('cta.description')}
             </p>
-            <Link 
-              href="/contact" 
+            <button 
+              onClick={() => setIsContactPopupOpen(true)}
               className="inline-flex items-center gap-2 bg-yellow-500 text-black px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-colors"
             >
               {t('cta.button')}
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -353,6 +354,36 @@ const page = () => {
         isOpen={isModalOpen}
         onClose={handleCloseModal}
       />
+
+      {/* Contact Popup */}
+      {isContactPopupOpen && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]" onClick={() => setIsContactPopupOpen(false)}>
+          <div className="bg-neutral-900 border border-neutral-700 rounded-2xl p-8 max-w-md mx-4 transform transition-all duration-300 scale-100" onClick={(e) => e.stopPropagation()}>
+            <div className="text-center">
+              <div className="mb-4">
+                <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">✉️</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">{t('contactPopup.title')}</h3>
+                <p className="text-neutral-300 mb-6">{t('contactPopup.description')}</p>
+              </div>
+              
+              <div className="bg-neutral-800 rounded-lg p-4 mb-6">
+                <p className="text-yellow-400 font-mono text-lg">contact@buzzverse.dev</p>
+              </div>
+              
+              <div className="flex justify-center">
+                <button
+                  onClick={() => setIsContactPopupOpen(false)}
+                  className="bg-neutral-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-neutral-700 transition-colors border border-neutral-600"
+                >
+                  {t('contactPopup.close')}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

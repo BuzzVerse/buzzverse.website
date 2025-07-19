@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { X, Calendar, User, ExternalLink } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface Project {
   id: number;
@@ -28,6 +29,8 @@ interface ProjectModalProps {
 }
 
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose }) => {
+  const t = useTranslations('Common');
+  
   if (!isOpen || !project) return null;
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -140,7 +143,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             ) : (
               <div className="bg-neutral-800/50 rounded-lg p-6 text-center">
                 <p className="text-neutral-400">
-                  Pełna treść artykułu będzie dostępna wkrótce...
+                  {t('fullContentPlaceholder')}
                 </p>
               </div>
             )}
@@ -151,7 +154,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                 onClick={onClose}
                 className="px-6 py-3 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition-colors"
               >
-                Zamknij
+                {t('close')}
               </button>
             </div>
           </div>

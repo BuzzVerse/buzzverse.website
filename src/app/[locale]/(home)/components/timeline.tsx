@@ -94,7 +94,7 @@ export function TimelineDemo() {
             {t('2024.description')}
           </p>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-          Club also launched innovative projects such as developing an automatic parking system and more.
+            {t('2024.projects')}
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image

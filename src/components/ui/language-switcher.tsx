@@ -64,7 +64,7 @@ export function LanguageSwitcher() {
   };
 
   return (
-    <div className="fixed top-6 right-6 z-50">
+    <div className="fixed top-6 right-6 z-50 hidden md:block">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="group flex items-center space-x-2 px-4 py-2.5 text-sm bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-md hover:from-white/20 hover:to-white/10 border border-white/20 hover:border-white/30 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"

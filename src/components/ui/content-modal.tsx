@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { X, Calendar, User, Play, ImageIcon } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface NewsItem {
   id: number;
@@ -71,6 +72,8 @@ interface ContentModalProps {
 }
 
 const ContentModal: React.FC<ContentModalProps> = ({ item, isOpen, onClose, type }) => {
+  const t = useTranslations('Common');
+  
   if (!isOpen || !item) return null;
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -144,7 +147,7 @@ const ContentModal: React.FC<ContentModalProps> = ({ item, isOpen, onClose, type
                 ) : (
                   <Play className="w-16 h-16 mx-auto mb-4" />
                 )}
-                <p>No image available</p>
+                <p>{t('noImage')}</p>
               </div>
             </div>
           )}
@@ -197,7 +200,7 @@ const ContentModal: React.FC<ContentModalProps> = ({ item, isOpen, onClose, type
             ) : (
               <div className="bg-neutral-800/50 rounded-lg p-6 text-center">
                 <p className="text-neutral-400">
-                  Pełna treść artykułu będzie dostępna wkrótce...
+                  {t('fullContentPlaceholder')}
                 </p>
               </div>
             )}
@@ -208,14 +211,14 @@ const ContentModal: React.FC<ContentModalProps> = ({ item, isOpen, onClose, type
                 onClick={onClose}
                 className="px-6 py-3 bg-neutral-800 text-white rounded-lg hover:bg-neutral-700 transition-colors"
               >
-                Zamknij
+                {t('close')}
               </button>
               {type === 'media' && (
                 <button 
                   onClick={() => window.open('/media', '_blank')}
                   className="px-6 py-3 bg-yellow-500 text-black rounded-lg hover:bg-yellow-400 transition-colors"
                 >
-                  Zobacz więcej media
+                  {t('seeMoreMedia')}
                 </button>
               )}
             </div>

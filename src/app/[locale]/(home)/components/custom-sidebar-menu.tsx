@@ -1,21 +1,73 @@
 'use client'
 
 import * as React from 'react'
-import { Menu, X, Home, Cpu, Newspaper, Radio, User } from 'lucide-react'
+import { Menu, X, Home, Cpu, Newspaper, Radio, User, Globe } from 'lucide-react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
+import { useRouter, usePathname as useNextPathname } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 
-const menuItems = [
-  { icon: Home, label: 'Home', href: '/' },
-  { icon: Cpu, label: 'Projects', href: '/projects' },
-  { icon: Newspaper, label: 'News', href: '/news' },
-  { icon: Radio, label: 'Media', href: '/media' },
-  { icon: User, label: 'About Us', href: '/about' },
-]
-
 export function CustomSidebarMenu() {
   const [open, setOpen] = React.useState(false)
+  const [currentLocale, setCurrentLocale] = React.useState<string>('en')
+  const locale = useLocale()
+  const router = useRouter()
+  const nextPathname = useNextPathname()
+  const t = useTranslations('Navigation')
+
+  const menuItems = [
+    { icon: Home, label: t('home'), href: '/' },
+    { icon: Cpu, label: t('projects'), href: '/projects' },
+    { icon: Newspaper, label: t('news'), href: '/news' },
+    { icon: Radio, label: t('media'), href: '/media' },
+    { icon: User, label: t('about'), href: '/about' },
+  ]
+
+  // Funkcja do określenia aktualnej lokalizacji
+  const detectLocale = () => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      if (path.startsWith('/pl')) return 'pl';
+      if (path.startsWith('/en')) return 'en';
+    }
+    return locale || 'en';
+  };
+
+  // Ustaw lokalizację przy pierwszym renderowaniu
+  React.useEffect(() => {
+    const detectedLocale = detectLocale();
+    setCurrentLocale(detectedLocale);
+  }, []);
+
+  // Aktualizuj lokalizację gdy zmieni się pathname
+  React.useEffect(() => {
+    const detectedLocale = detectLocale();
+    setCurrentLocale(detectedLocale);
+  }, [nextPathname, locale]);
+
+  const switchLanguage = (newLocale: string) => {
+    // Pobierz obecną ścieżkę bez locale
+    const fullPath = window.location.pathname;
+    
+    // Usuń aktualny locale z początku URL
+    let pathWithoutLocale = fullPath;
+    if (pathWithoutLocale.startsWith('/en/')) {
+      pathWithoutLocale = pathWithoutLocale.substring(3);
+    } else if (pathWithoutLocale.startsWith('/pl/')) {
+      pathWithoutLocale = pathWithoutLocale.substring(3);
+    } else if (pathWithoutLocale === '/en' || pathWithoutLocale === '/pl') {
+      pathWithoutLocale = '';
+    }
+    
+    // Zbuduj nowy URL
+    const newUrl = `/${newLocale}${pathWithoutLocale}`;
+    
+    // Użyj Next.js router
+    router.push(newUrl);
+    setOpen(false);
+  };
 
   return (
     <div className='md:hidden'>
@@ -58,6 +110,46 @@ export function CustomSidebarMenu() {
               </li>
             ))}
           </ul>
+          
+          {/* Language Switcher */}
+          <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="mb-2">
+              <div className="flex items-center gap-2 px-3 py-2 text-sm text-gray-600 dark:text-gray-400">
+                <Globe className="h-4 w-4" />
+                <span>Language</span>
+              </div>
+            </div>
+            <ul className="space-y-1">
+              <li>
+                <button
+                  onClick={() => switchLanguage('en')}
+                  className={`w-full flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors ${
+                    currentLocale === 'en' 
+                      ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' 
+                      : 'text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800'
+                  }`}
+                >
+                  <span className="text-lg">🇺🇸</span>
+                  <span>English</span>
+                  {currentLocale === 'en' && <span className="ml-auto">✓</span>}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => switchLanguage('pl')}
+                  className={`w-full flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-colors ${
+                    currentLocale === 'pl' 
+                      ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30' 
+                      : 'text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800'
+                  }`}
+                >
+                  <span className="text-lg">🇵🇱</span>
+                  <span>Polski</span>
+                  {currentLocale === 'pl' && <span className="ml-auto">✓</span>}
+                </button>
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
     </div>

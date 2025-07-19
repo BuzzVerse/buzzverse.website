@@ -14,6 +14,8 @@
     "gallery": "Galeria"
   },
   "HomePage": {
+    "welcome": "Witamy w BuzzVerse",
+    "description": "Jesteśmy grupą studentów oddanych rozwijaniu się oraz miłości do nauki i współpracy na naszej uczelni.",
     "hero": {
       "title": "BuzzVerse",
       "subtitle": "Centrum Innowacji Technologii IoT",
@@ -100,6 +102,12 @@
       "title": "Gotowy do innowacji z nami?",
       "description": "Dołącz do naszego koła naukowego i stań się częścią następnej generacji innowatorów IoT",
       "button": "Skontaktuj się"
+    },
+    "contactPopup": {
+      "title": "Napisz do nas śmiało!",
+      "description": "Skontaktuj się z nami, chętnie odpowiemy na wszystkie pytania.",
+      "sendEmail": "Wyślij email",
+      "close": "Zamknij"
     }
   },
   "NewsPage": {
@@ -130,7 +138,8 @@
         "description": "Pierwszy udany projekt komunikacji LoRa i rozszerzenie zespołu"
       },
       "2024": {
-        "description": "Uruchomienie projektu BeeMonitor i partnerstwo z lokalnymi firmami"
+        "description": "Uruchomienie projektu BeeMonitor i partnerstwo z lokalnymi firmami",
+        "projects": "Klub uruchomił również innowacyjne projekty, takie jak opracowanie automatycznego systemu parkingowego i inne."
       }
     }
   },

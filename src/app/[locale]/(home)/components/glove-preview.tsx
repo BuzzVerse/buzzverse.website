@@ -3,12 +3,15 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { sampleArcs } from "@/data/sample-arcs";
+import { useTranslations } from 'next-intl';
 
 const World = dynamic(() => import("@/components/ui/globe").then((m) => m.World), {
     ssr: false,
   });
 
 export function GitHubGlobe() {
+    const t = useTranslations('HomePage');
+    
     const globeConfig = {
         pointSize: 4,
         globeColor: "#222233",
@@ -71,12 +74,10 @@ export function GitHubGlobe() {
               className="div"
             >
               <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
-                    Welcome to BuzzVerse
+                    {t('welcome')}
               </h2>
               <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto mb-4 md:mb-0">
-                        We are a group of students dedicated to fostering a love
-                        for science and collaboration within our university.
-                        
+                        {t('description')}
               </p>
             </motion.div>
             <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent to-neutral-950 z-40" />
