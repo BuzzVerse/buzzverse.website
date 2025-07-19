@@ -16,11 +16,38 @@ interface Project {
 
 const fetchProjects = async (): Promise<Project[]> => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=photo`);
+    const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/projects?populate=photo`;
+    console.log('🔍 Fetching from:', url);
+    
+    const res = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // Dodaj cache dla lepszej wydajności
+      next: { revalidate: 60 }
+    });
+    
+    console.log('📡 Response status:', res.status);
+    
+    if (!res.ok) {
+      console.error('❌ Fetch failed:', res.status, res.statusText);
+      // Sprawdź czy to problem z CORS lub uprawnieniami
+      if (res.status === 403) {
+        console.error('🔒 Access forbidden - check Strapi permissions');
+      }
+      if (res.status === 404) {
+        console.error('🔍 API endpoint not found - check URL');
+      }
+      return [];
+    }
+    
     const data = await res.json();
+    console.log('📊 API Response:', data);
+    console.log('📦 Projects count:', data.data?.length || 0);
+    
     return data.data || [];
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error("💥 Error fetching projects:", error);
     return [];
   }
 };
