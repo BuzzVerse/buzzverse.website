@@ -1,22 +1,34 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Wifi, Zap, Globe, Shield, Battery, Cpu, ArrowRight, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import ProjectModal from "@/components/ui/project-modal";
 
 interface Project {
   id: number;
   documentId: string;
   name: string;
   description: string;
+  content?: string; // Pełna treść artykułu z Strapi
+  createdAt?: string;
+  author?: string;
+  tags?: string[];
   photo?: {
     url: string;
+    formats?: {
+      medium?: { url: string };
+      large?: { url: string };
+      thumbnail?: { url: string };
+    };
   };
 }
 
 const fetchProjects = async (): Promise<Project[]> => {
   try {
-    const url = `https://strapi.buzzverse.dev/api/projects?populate=photo`;
+    // Fetch z dodatkowymi polami
+    const url = `https://strapi.buzzverse.dev/api/projects?populate=photo&fields=*`;
     console.log('🔍 Fetching from:', url);
     
     const res = await fetch(url, {
@@ -49,6 +61,33 @@ const fetchProjects = async (): Promise<Project[]> => {
   } catch (error) {
     console.error("💥 Error fetching projects:", error);
     return [];
+  }
+};
+
+// Funkcja do pobierania szczegółów konkretnego projektu
+const fetchProjectDetails = async (documentId: string): Promise<Project | null> => {
+  try {
+    const url = `https://strapi.buzzverse.dev/api/projects/${documentId}?populate=photo`;
+    console.log('🔍 Fetching project details from:', url);
+    
+    const res = await fetch(url, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (!res.ok) {
+      console.error('❌ Failed to fetch project details:', res.status);
+      return null;
+    }
+    
+    const data = await res.json();
+    console.log('📊 Project details:', data);
+    
+    return data.data || null;
+  } catch (error) {
+    console.error("💥 Error fetching project details:", error);
+    return null;
   }
 };
 
@@ -85,8 +124,52 @@ const features = [
   }
 ];
 
-const page = async () => {
-  const projects = await fetchProjects();
+const page = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      setLoading(true);
+      const fetchedProjects = await fetchProjects();
+      setProjects(fetchedProjects);
+      setLoading(false);
+    };
+
+    loadProjects();
+  }, []);
+
+  const handleProjectClick = async (project: Project) => {
+    // Najpierw pokaż podstawowe informacje
+    setSelectedProject(project);
+    setIsModalOpen(true);
+    
+    // Następnie pobierz szczegółowe informacje jeśli nie ma content
+    if (!project.content) {
+      const detailedProject = await fetchProjectDetails(project.documentId);
+      if (detailedProject) {
+        setSelectedProject(detailedProject);
+      }
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-neutral-950 pt-20 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-4"></div>
+          <p className="text-neutral-400">Loading projects...</p>
+        </div>
+      </div>
+    );
+  }
   
   return (
     <div className="min-h-screen bg-neutral-950 pt-20">
@@ -203,7 +286,10 @@ const page = async () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <div key={project.id} className="group">
-                  <Card className="bg-neutral-900/50 border-neutral-800 hover:border-yellow-500/50 transition-all duration-300 overflow-hidden h-full hover:scale-102">
+                  <Card 
+                    className="bg-neutral-900/50 border-neutral-800 hover:border-yellow-500/50 transition-all duration-300 overflow-hidden h-full hover:scale-102 cursor-pointer"
+                    onClick={() => handleProjectClick(project)}
+                  >
                     {project.photo?.url && (
                       <div className="relative h-48 overflow-hidden">
                         <Image
@@ -261,6 +347,13 @@ const page = async () => {
           </div>
         </div>
       </section>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };

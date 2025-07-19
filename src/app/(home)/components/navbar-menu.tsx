@@ -4,17 +4,24 @@ import { HoveredLink, Menu, MenuItem, ProductItem } from "@/components/ui/navbar
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import ProjectModal from "@/components/ui/project-modal";
 
 interface Project {
   id: number;
   documentId: string;
   name: string;
   description: string;
+  content?: string;
+  createdAt?: string;
+  author?: string;
+  tags?: string[];
   photo?: {
     url: string;
     formats?: {
       thumbnail?: { url: string };
       small?: { url: string };
+      medium?: { url: string };
+      large?: { url: string };
     };
   };
 }
@@ -65,6 +72,8 @@ export function Navbar({ className }: { className?: string }) {
   const [recentProjects, setRecentProjects] = useState<Project[]>([]);
   const [recentNews, setRecentNews] = useState<NewsItem[]>([]);
   const [recentMedia, setRecentMedia] = useState<MediaItem[]>([]);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -142,6 +151,18 @@ export function Navbar({ className }: { className?: string }) {
       }, 100);
     }
   };
+
+  const handleProjectClick = async (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+    setActive(null); // Close navbar menu
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <div
       className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50 hidden md:block", className)}
@@ -159,7 +180,11 @@ export function Navbar({ className }: { className?: string }) {
                   <p className="text-xs text-neutral-400 mb-2">Recent Projects:</p>
                   <div className="grid gap-2">
                     {recentProjects.map((project) => (
-                      <div key={project.id} className="flex items-center space-x-3 p-2 rounded hover:bg-neutral-800 transition-colors">
+                      <div 
+                        key={project.id} 
+                        className="flex items-center space-x-3 p-2 rounded hover:bg-neutral-800 transition-colors cursor-pointer"
+                        onClick={() => handleProjectClick(project)}
+                      >
                         <div className="w-8 h-8 rounded overflow-hidden bg-neutral-700 flex-shrink-0">
                           {extractImageUrl(project) ? (
                             <img
@@ -172,9 +197,9 @@ export function Navbar({ className }: { className?: string }) {
                           )}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <HoveredLink href={`/projects#${project.documentId}`}>
-                            <span className="text-xs font-medium truncate">{project.name}</span>
-                          </HoveredLink>
+                          <span className="text-xs font-medium truncate hover:text-yellow-400 transition-colors">
+                            {project.name}
+                          </span>
                         </div>
                       </div>
                     ))}
@@ -271,6 +296,13 @@ export function Navbar({ className }: { className?: string }) {
           </div>
         </MenuItem>
       </Menu>
+
+      {/* Project Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 }
