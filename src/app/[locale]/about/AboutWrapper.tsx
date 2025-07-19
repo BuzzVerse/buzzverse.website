@@ -96,13 +96,13 @@ const AboutWrapper: React.FC<AboutWrapperProps> = ({ teamMembers }) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="mb-4 inline-flex items-center rounded-full bg-neutral-800 text-neutral-300 border border-neutral-700 px-3 py-1 text-sm font-semibold">
-              About BuzzVerse
+              {t('badges.about')}
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
               {t('title')}
             </h1>
             <p className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-              We are a passionate science club dedicated to advancing IoT technology and fostering innovation in our university community.
+              {t('heroDescription')}
             </p>
           </div>
         </div>
@@ -114,17 +114,13 @@ const AboutWrapper: React.FC<AboutWrapperProps> = ({ teamMembers }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Who We Are
+                {t('whoWeAre.title')}
               </h2>
               <p className="text-lg text-neutral-300 leading-relaxed mb-6">
-                The BuzzVerse Science Club is a team of information technology enthusiasts. 
-                The aim of the club is to influence real changes in the environment and to develop 
-                skills related to embedded systems, programming as well as the design and implementation 
-                of embedded devices.
+                {t('whoWeAre.description1')}
               </p>
               <p className="text-lg text-neutral-300 leading-relaxed">
-                We work with cutting-edge LoRa technology, creating innovative IoT solutions that 
-                bridge the gap between academic learning and real-world applications.
+                {t('whoWeAre.description2')}
               </p>
             </div>
             <div className="relative">
@@ -167,7 +163,7 @@ const AboutWrapper: React.FC<AboutWrapperProps> = ({ teamMembers }) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="mb-4 inline-flex items-center rounded-full bg-neutral-800 text-neutral-300 border border-neutral-700 px-3 py-1 text-sm font-semibold">
-              Our Journey
+              {t('badges.journey')}
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t('timelineTitle')}
@@ -187,13 +183,13 @@ const AboutWrapper: React.FC<AboutWrapperProps> = ({ teamMembers }) => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="mb-4 inline-flex items-center rounded-full bg-neutral-800 text-neutral-300 border border-neutral-700 px-3 py-1 text-sm font-semibold">
-              Meet the Team
+              {t('badges.meetTeam')}
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {t('ourTeamTitle')}
             </h2>
             <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
-              Our diverse team of passionate students and professionals working together to push the boundaries of IoT technology.
+              {t('teamDescription')}
             </p>
           </div>
           <OurTeam teamMembers={teamMembers} />

@@ -130,6 +130,18 @@
     "ourTeamTitle": "Nasz zespół",
     "timelineTitle": "Historia BuzzVerse",
     "timelineDescription": "Pracujemy nad BuzzVerse od 3 lat. Oto historia naszego koła naukowego.",
+    "heroDescription": "Jesteśmy pasjonatami koła naukowego oddanym rozwojowi technologii IoT i wspieraniu innowacji w naszej społeczności uniwersyteckiej.",
+    "badges": {
+      "about": "O BuzzVerse",
+      "journey": "Nasza Podróż",
+      "meetTeam": "Poznaj Zespół"
+    },
+    "whoWeAre": {
+      "title": "Kim jesteśmy",
+      "description1": "Koło Naukowe BuzzVerse to zespół entuzjastów technologii informatycznych. Celem koła jest wywieranie realnych zmian w środowisku oraz rozwijanie umiejętności związanych z systemami wbudowanymi, programowaniem oraz projektowaniem i implementacją urządzeń wbudowanych.",
+      "description2": "Pracujemy z najnowocześniejszą technologią LoRa, tworząc innowacyjne rozwiązania IoT, które łączą naukę akademicką z zastosowaniami w rzeczywistym świecie."
+    },
+    "teamDescription": "Nasz różnorodny zespół pasjonatów studentów i profesjonalistów pracujących razem nad przesuwaniem granic technologii IoT.",
     "values": {
       "mission": {
         "title": "Nasza Misja",

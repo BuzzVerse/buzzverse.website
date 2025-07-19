@@ -130,6 +130,18 @@
     "ourTeamTitle": "Our Team",
     "timelineTitle": "Timeline of BuzzVerse",
     "timelineDescription": "We've been working on BuzzVerse for the past 3 years. Here's a timeline of our science club.",
+    "heroDescription": "We are a passionate science club dedicated to advancing IoT technology and fostering innovation in our university community.",
+    "badges": {
+      "about": "About BuzzVerse",
+      "journey": "Our Journey",
+      "meetTeam": "Meet the Team"
+    },
+    "whoWeAre": {
+      "title": "Who We Are",
+      "description1": "The BuzzVerse Science Club is a team of information technology enthusiasts. The aim of the club is to influence real changes in the environment and to develop skills related to embedded systems, programming as well as the design and implementation of embedded devices.",
+      "description2": "We work with cutting-edge LoRa technology, creating innovative IoT solutions that bridge the gap between academic learning and real-world applications."
+    },
+    "teamDescription": "Our diverse team of passionate students and professionals working together to push the boundaries of IoT technology.",
     "values": {
       "mission": {
         "title": "Our Mission",
